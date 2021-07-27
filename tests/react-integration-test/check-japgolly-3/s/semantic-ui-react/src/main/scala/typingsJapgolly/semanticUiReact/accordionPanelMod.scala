@@ -1,11 +1,11 @@
 package typingsJapgolly.semanticUiReact
 
-import japgolly.scalajs.react.Callback
 import japgolly.scalajs.react.ReactMouseEventFrom
 import japgolly.scalajs.react.facade.Empty
 import japgolly.scalajs.react.facade.JsNumber
 import japgolly.scalajs.react.facade.React.Element
 import japgolly.scalajs.react.facade.React.Node
+import japgolly.scalajs.react.util.Effect.Sync
 import japgolly.scalajs.react.vdom.VdomElement
 import org.scalablytyped.runtime.StringDictionary
 import org.scalajs.dom.raw.HTMLDivElement
@@ -34,7 +34,7 @@ object accordionPanelMod {
        with /* key */ StringDictionary[js.Any]
   object AccordionPanelProps {
     
-    inline def apply(): AccordionPanelProps = {
+    inline def apply[F[_]]()(implicit _sync: Sync[F]): AccordionPanelProps = {
       val __obj = js.Dynamic.literal()
       __obj.asInstanceOf[AccordionPanelProps]
     }
@@ -70,7 +70,7 @@ object accordionPanelMod {
   }
   object StrictAccordionPanelProps {
     
-    inline def apply(): StrictAccordionPanelProps = {
+    inline def apply[F[_]]()(implicit _sync: Sync[F]): StrictAccordionPanelProps = {
       val __obj = js.Dynamic.literal()
       __obj.asInstanceOf[StrictAccordionPanelProps]
     }
@@ -99,9 +99,11 @@ object accordionPanelMod {
       
       inline def setIndexUndefined: Self = StObject.set(x, "index", js.undefined)
       
-      inline def setOnTitleClick(
-        value: (/* event */ ReactMouseEventFrom[HTMLDivElement], /* data */ AccordionTitleProps) => Callback
-      ): Self = StObject.set(x, "onTitleClick", js.Any.fromFunction2((t0: /* event */ ReactMouseEventFrom[HTMLDivElement], t1: /* data */ AccordionTitleProps) => (value(t0, t1)).runNow()))
+      inline def setOnTitleClick[F[_]](
+        value: (/* event */ ReactMouseEventFrom[HTMLDivElement], /* data */ AccordionTitleProps) => F[Unit]
+      )(
+        implicit _sync: Sync[F]
+      ): Self = StObject.set(x, "onTitleClick", js.Any.fromFunction2((t0: /* event */ ReactMouseEventFrom[HTMLDivElement], t1: /* data */ AccordionTitleProps) => _sync.runSync(value(t0, t1))))
       
       inline def setOnTitleClickUndefined: Self = StObject.set(x, "onTitleClick", js.undefined)
       

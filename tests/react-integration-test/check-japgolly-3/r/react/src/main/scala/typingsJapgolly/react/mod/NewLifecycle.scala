@@ -1,6 +1,6 @@
 package typingsJapgolly.react.mod
 
-import japgolly.scalajs.react.Callback
+import japgolly.scalajs.react.util.Effect.Sync
 import org.scalablytyped.runtime.StObject
 import scala.scalajs.js
 import scala.scalajs.js.annotation.{JSGlobalScope, JSGlobal, JSImport, JSName, JSBracketAccess}
@@ -29,14 +29,18 @@ trait NewLifecycle[P, S, SS] extends StObject {
 }
 object NewLifecycle {
   
-  inline def apply[P, S, SS](): NewLifecycle[P, S, SS] = {
+  inline def apply[F[_], P, S, SS]()(implicit _sync: Sync[F]): NewLifecycle[P, S, SS] = {
     val __obj = js.Dynamic.literal()
     __obj.asInstanceOf[NewLifecycle[P, S, SS]]
   }
   
   extension [Self <: NewLifecycle[?, ?, ?], P, S, SS](x: Self & (NewLifecycle[P, S, SS])) {
     
-    inline def setComponentDidUpdate(value: (/* prevProps */ P, /* prevState */ S, /* snapshot */ js.UndefOr[SS]) => Callback): Self = StObject.set(x, "componentDidUpdate", js.Any.fromFunction3((t0: /* prevProps */ P, t1: /* prevState */ S, t2: /* snapshot */ js.UndefOr[SS]) => (value(t0, t1, t2)).runNow()))
+    inline def setComponentDidUpdate[F[_]](
+      value: (/* prevProps */ P, /* prevState */ S, /* snapshot */ js.UndefOr[SS]) => F[Unit]
+    )(
+      implicit _sync: Sync[F]
+    ): Self = StObject.set(x, "componentDidUpdate", js.Any.fromFunction3((t0: /* prevProps */ P, t1: /* prevState */ S, t2: /* snapshot */ js.UndefOr[SS]) => _sync.runSync(value(t0, t1, t2))))
     
     inline def setComponentDidUpdateUndefined: Self = StObject.set(x, "componentDidUpdate", js.undefined)
     

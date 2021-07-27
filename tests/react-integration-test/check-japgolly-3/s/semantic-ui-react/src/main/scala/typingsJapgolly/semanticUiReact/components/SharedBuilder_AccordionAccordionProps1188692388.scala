@@ -1,7 +1,7 @@
 package typingsJapgolly.semanticUiReact.components
 
-import japgolly.scalajs.react.Callback
 import japgolly.scalajs.react.ReactMouseEventFrom
+import japgolly.scalajs.react.util.Effect.Sync
 import org.scalajs.dom.raw.HTMLDivElement
 import typingsJapgolly.StBuildingComponent
 import typingsJapgolly.semanticUiReact.accordionPanelMod.AccordionPanelProps
@@ -31,9 +31,11 @@ class SharedBuilder_AccordionAccordionProps1188692388[R <: js.Object] (val args:
   
   inline def exclusive(value: Boolean): this.type = set("exclusive", value.asInstanceOf[js.Any])
   
-  inline def onTitleClick(
-    value: (/* event */ ReactMouseEventFrom[HTMLDivElement], /* data */ AccordionTitleProps) => Callback
-  ): this.type = set("onTitleClick", js.Any.fromFunction2((t0: /* event */ ReactMouseEventFrom[HTMLDivElement], t1: /* data */ AccordionTitleProps) => (value(t0, t1)).runNow()))
+  inline def onTitleClick[F[_]](
+    value: (/* event */ ReactMouseEventFrom[HTMLDivElement], /* data */ AccordionTitleProps) => F[Unit]
+  )(
+    implicit _sync: Sync[F]
+  ): this.type = set("onTitleClick", js.Any.fromFunction2((t0: /* event */ ReactMouseEventFrom[HTMLDivElement], t1: /* data */ AccordionTitleProps) => _sync.runSync(value(t0, t1))))
   
   inline def panels(value: SemanticShorthandCollection[AccordionPanelProps]): this.type = set("panels", value.asInstanceOf[js.Any])
   

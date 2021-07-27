@@ -1,7 +1,7 @@
 package typingsJapgolly.react.mod
 
-import japgolly.scalajs.react.Callback
 import japgolly.scalajs.react.ReactEventFrom
+import japgolly.scalajs.react.util.Effect.Sync
 import org.scalajs.dom.raw.Element
 import org.scalablytyped.runtime.StObject
 import scala.scalajs.js
@@ -79,7 +79,7 @@ trait InputHTMLAttributes[T]
 }
 object InputHTMLAttributes {
   
-  inline def apply[T](): InputHTMLAttributes[T] = {
+  inline def apply[F[_], T]()(implicit _sync: Sync[F]): InputHTMLAttributes[T] = {
     val __obj = js.Dynamic.literal()
     __obj.asInstanceOf[InputHTMLAttributes[T]]
   }
@@ -174,7 +174,7 @@ object InputHTMLAttributes {
     
     inline def setNameUndefined: Self = StObject.set(x, "name", js.undefined)
     
-    inline def setOnChange(value: ReactEventFrom[T & Element] => Callback): Self = StObject.set(x, "onChange", js.Any.fromFunction1((t0: ReactEventFrom[T & Element]) => value(t0).runNow()))
+    inline def setOnChange[F[_]](value: ReactEventFrom[T & Element] => F[Unit])(implicit _sync: Sync[F]): Self = StObject.set(x, "onChange", js.Any.fromFunction1((t0: ReactEventFrom[T & Element]) => _sync.runSync(value(t0))))
     
     inline def setOnChangeUndefined: Self = StObject.set(x, "onChange", js.undefined)
     

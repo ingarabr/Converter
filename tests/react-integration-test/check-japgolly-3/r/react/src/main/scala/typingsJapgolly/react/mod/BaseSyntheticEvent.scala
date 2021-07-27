@@ -1,7 +1,6 @@
 package typingsJapgolly.react.mod
 
-import japgolly.scalajs.react.Callback
-import japgolly.scalajs.react.CallbackTo
+import japgolly.scalajs.react.util.Effect.Sync
 import org.scalablytyped.runtime.StObject
 import scala.scalajs.js
 import scala.scalajs.js.annotation.{JSGlobalScope, JSGlobal, JSImport, JSName, JSBracketAccess}
@@ -44,24 +43,26 @@ trait BaseSyntheticEvent[E, C, T] extends StObject {
 }
 object BaseSyntheticEvent {
   
-  inline def apply[E, C, T](
+  inline def apply[F[_], E, C, T](
     bubbles: Boolean,
     cancelable: Boolean,
     currentTarget: C,
     defaultPrevented: Boolean,
     eventPhase: Double,
-    isDefaultPrevented: CallbackTo[Boolean],
-    isPropagationStopped: CallbackTo[Boolean],
+    isDefaultPrevented: F[Boolean],
+    isPropagationStopped: F[Boolean],
     isTrusted: Boolean,
     nativeEvent: E,
-    persist: Callback,
-    preventDefault: Callback,
-    stopPropagation: Callback,
+    persist: F[Unit],
+    preventDefault: F[Unit],
+    stopPropagation: F[Unit],
     target: T,
     timeStamp: Double,
     `type`: String
+  )(
+    implicit _sync: Sync[F]
   ): BaseSyntheticEvent[E, C, T] = {
-    val __obj = js.Dynamic.literal(bubbles = bubbles.asInstanceOf[js.Any], cancelable = cancelable.asInstanceOf[js.Any], currentTarget = currentTarget.asInstanceOf[js.Any], defaultPrevented = defaultPrevented.asInstanceOf[js.Any], eventPhase = eventPhase.asInstanceOf[js.Any], isDefaultPrevented = isDefaultPrevented.toJsFn, isPropagationStopped = isPropagationStopped.toJsFn, isTrusted = isTrusted.asInstanceOf[js.Any], nativeEvent = nativeEvent.asInstanceOf[js.Any], persist = persist.toJsFn, preventDefault = preventDefault.toJsFn, stopPropagation = stopPropagation.toJsFn, target = target.asInstanceOf[js.Any], timeStamp = timeStamp.asInstanceOf[js.Any])
+    val __obj = js.Dynamic.literal(bubbles = bubbles.asInstanceOf[js.Any], cancelable = cancelable.asInstanceOf[js.Any], currentTarget = currentTarget.asInstanceOf[js.Any], defaultPrevented = defaultPrevented.asInstanceOf[js.Any], eventPhase = eventPhase.asInstanceOf[js.Any], isDefaultPrevented = _sync.toJsFn(isDefaultPrevented), isPropagationStopped = _sync.toJsFn(isPropagationStopped), isTrusted = isTrusted.asInstanceOf[js.Any], nativeEvent = nativeEvent.asInstanceOf[js.Any], persist = _sync.toJsFn(persist), preventDefault = _sync.toJsFn(preventDefault), stopPropagation = _sync.toJsFn(stopPropagation), target = target.asInstanceOf[js.Any], timeStamp = timeStamp.asInstanceOf[js.Any])
     __obj.updateDynamic("type")(`type`.asInstanceOf[js.Any])
     __obj.asInstanceOf[BaseSyntheticEvent[E, C, T]]
   }
@@ -78,19 +79,19 @@ object BaseSyntheticEvent {
     
     inline def setEventPhase(value: Double): Self = StObject.set(x, "eventPhase", value.asInstanceOf[js.Any])
     
-    inline def setIsDefaultPrevented(value: CallbackTo[Boolean]): Self = StObject.set(x, "isDefaultPrevented", value.toJsFn)
+    inline def setIsDefaultPrevented[F[_]](value: F[Boolean])(implicit _sync: Sync[F]): Self = StObject.set(x, "isDefaultPrevented", _sync.toJsFn(value))
     
-    inline def setIsPropagationStopped(value: CallbackTo[Boolean]): Self = StObject.set(x, "isPropagationStopped", value.toJsFn)
+    inline def setIsPropagationStopped[F[_]](value: F[Boolean])(implicit _sync: Sync[F]): Self = StObject.set(x, "isPropagationStopped", _sync.toJsFn(value))
     
     inline def setIsTrusted(value: Boolean): Self = StObject.set(x, "isTrusted", value.asInstanceOf[js.Any])
     
     inline def setNativeEvent(value: E): Self = StObject.set(x, "nativeEvent", value.asInstanceOf[js.Any])
     
-    inline def setPersist(value: Callback): Self = StObject.set(x, "persist", value.toJsFn)
+    inline def setPersist[F[_]](value: F[Unit])(implicit _sync: Sync[F]): Self = StObject.set(x, "persist", _sync.toJsFn(value))
     
-    inline def setPreventDefault(value: Callback): Self = StObject.set(x, "preventDefault", value.toJsFn)
+    inline def setPreventDefault[F[_]](value: F[Unit])(implicit _sync: Sync[F]): Self = StObject.set(x, "preventDefault", _sync.toJsFn(value))
     
-    inline def setStopPropagation(value: Callback): Self = StObject.set(x, "stopPropagation", value.toJsFn)
+    inline def setStopPropagation[F[_]](value: F[Unit])(implicit _sync: Sync[F]): Self = StObject.set(x, "stopPropagation", _sync.toJsFn(value))
     
     inline def setTarget(value: T): Self = StObject.set(x, "target", value.asInstanceOf[js.Any])
     

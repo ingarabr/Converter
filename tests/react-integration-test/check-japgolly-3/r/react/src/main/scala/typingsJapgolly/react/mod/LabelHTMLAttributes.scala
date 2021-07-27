@@ -1,5 +1,6 @@
 package typingsJapgolly.react.mod
 
+import japgolly.scalajs.react.util.Effect.Sync
 import org.scalablytyped.runtime.StObject
 import scala.scalajs.js
 import scala.scalajs.js.annotation.{JSGlobalScope, JSGlobal, JSImport, JSName, JSBracketAccess}
@@ -14,7 +15,7 @@ trait LabelHTMLAttributes[T]
 }
 object LabelHTMLAttributes {
   
-  inline def apply[T](): LabelHTMLAttributes[T] = {
+  inline def apply[F[_], T]()(implicit _sync: Sync[F]): LabelHTMLAttributes[T] = {
     val __obj = js.Dynamic.literal()
     __obj.asInstanceOf[LabelHTMLAttributes[T]]
   }

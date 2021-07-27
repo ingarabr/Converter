@@ -1,8 +1,7 @@
 package typingsJapgolly.componentstest
 
-import japgolly.scalajs.react.Callback
-import japgolly.scalajs.react.CallbackTo
 import japgolly.scalajs.react.ReactMouseEventFrom
+import japgolly.scalajs.react.util.Effect.Sync
 import org.scalajs.dom.raw.Element
 import org.scalajs.dom.raw.HTMLDivElement
 import typingsJapgolly.componentstest.anon.Equals
@@ -43,14 +42,14 @@ object mod {
   }
   object A {
     
-    inline def apply(aCallback: CallbackTo[Double], aMember: Double): A = {
-      val __obj = js.Dynamic.literal(aCallback = aCallback.toJsFn, aMember = aMember.asInstanceOf[js.Any])
+    inline def apply[F[_]](aCallback: F[Double], aMember: Double)(implicit _sync: Sync[F]): A = {
+      val __obj = js.Dynamic.literal(aCallback = _sync.toJsFn(aCallback), aMember = aMember.asInstanceOf[js.Any])
       __obj.asInstanceOf[A]
     }
     
     extension [Self <: A](x: Self) {
       
-      inline def setACallback(value: CallbackTo[Double]): Self = StObject.set(x, "aCallback", value.toJsFn)
+      inline def setACallback[F[_]](value: F[Double])(implicit _sync: Sync[F]): Self = StObject.set(x, "aCallback", _sync.toJsFn(value))
       
       inline def setAMember(value: Double): Self = StObject.set(x, "aMember", value.asInstanceOf[js.Any])
     }
@@ -66,14 +65,14 @@ object mod {
   }
   object B {
     
-    inline def apply(bMember: String): B = {
+    inline def apply[F[_]](bMember: String)(implicit _sync: Sync[F]): B = {
       val __obj = js.Dynamic.literal(bMember = bMember.asInstanceOf[js.Any])
       __obj.asInstanceOf[B]
     }
     
     extension [Self <: B](x: Self) {
       
-      inline def setBCallback(value: CallbackTo[String]): Self = StObject.set(x, "bCallback", value.toJsFn)
+      inline def setBCallback[F[_]](value: F[String])(implicit _sync: Sync[F]): Self = StObject.set(x, "bCallback", _sync.toJsFn(value))
       
       inline def setBCallbackUndefined: Self = StObject.set(x, "bCallback", js.undefined)
       
@@ -135,14 +134,14 @@ object mod {
   }
   object CardProps {
     
-    inline def apply(): CardProps = {
+    inline def apply[F[_]]()(implicit _sync: Sync[F]): CardProps = {
       val __obj = js.Dynamic.literal()
       __obj.asInstanceOf[CardProps]
     }
     
     extension [Self <: CardProps](x: Self) {
       
-      inline def setOnClick(value: ReactMouseEventFrom[HTMLDivElement & Element] => Callback): Self = StObject.set(x, "onClick", js.Any.fromFunction1((t0: ReactMouseEventFrom[HTMLDivElement & Element]) => value(t0).runNow()))
+      inline def setOnClick[F[_]](value: ReactMouseEventFrom[HTMLDivElement & Element] => F[Unit])(implicit _sync: Sync[F]): Self = StObject.set(x, "onClick", js.Any.fromFunction1((t0: ReactMouseEventFrom[HTMLDivElement & Element]) => _sync.runSync(value(t0))))
       
       inline def setOnClickUndefined: Self = StObject.set(x, "onClick", js.undefined)
       
@@ -159,12 +158,12 @@ object mod {
   trait Props extends StObject
   object Props {
     
-    inline def A(aCallback: CallbackTo[Double], aMember: Double): typingsJapgolly.componentstest.mod.A = {
-      val __obj = js.Dynamic.literal(aCallback = aCallback.toJsFn, aMember = aMember.asInstanceOf[js.Any])
+    inline def A[F[_]](aCallback: F[Double], aMember: Double)(implicit _sync: Sync[F]): typingsJapgolly.componentstest.mod.A = {
+      val __obj = js.Dynamic.literal(aCallback = _sync.toJsFn(aCallback), aMember = aMember.asInstanceOf[js.Any])
       __obj.asInstanceOf[typingsJapgolly.componentstest.mod.A]
     }
     
-    inline def B(bMember: String): typingsJapgolly.componentstest.mod.B = {
+    inline def B[F[_]](bMember: String)(implicit _sync: Sync[F]): typingsJapgolly.componentstest.mod.B = {
       val __obj = js.Dynamic.literal(bMember = bMember.asInstanceOf[js.Any])
       __obj.asInstanceOf[typingsJapgolly.componentstest.mod.B]
     }

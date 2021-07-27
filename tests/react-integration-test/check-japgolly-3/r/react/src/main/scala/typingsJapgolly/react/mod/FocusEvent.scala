@@ -1,7 +1,6 @@
 package typingsJapgolly.react.mod
 
-import japgolly.scalajs.react.Callback
-import japgolly.scalajs.react.CallbackTo
+import japgolly.scalajs.react.util.Effect.Sync
 import org.scalajs.dom.raw.EventTarget
 import org.scalablytyped.runtime.StObject
 import scala.scalajs.js
@@ -18,25 +17,27 @@ trait FocusEvent[T]
 }
 object FocusEvent {
   
-  inline def apply[T](
+  inline def apply[F[_], T](
     bubbles: Boolean,
     cancelable: Boolean,
     currentTarget: EventTarget & T,
     defaultPrevented: Boolean,
     eventPhase: Double,
-    isDefaultPrevented: CallbackTo[Boolean],
-    isPropagationStopped: CallbackTo[Boolean],
+    isDefaultPrevented: F[Boolean],
+    isPropagationStopped: F[Boolean],
     isTrusted: Boolean,
     nativeEvent: NativeFocusEvent,
-    persist: Callback,
-    preventDefault: Callback,
+    persist: F[Unit],
+    preventDefault: F[Unit],
     relatedTarget: EventTarget,
-    stopPropagation: Callback,
+    stopPropagation: F[Unit],
     target: EventTarget & T,
     timeStamp: Double,
     `type`: String
+  )(
+    implicit _sync: Sync[F]
   ): FocusEvent[T] = {
-    val __obj = js.Dynamic.literal(bubbles = bubbles.asInstanceOf[js.Any], cancelable = cancelable.asInstanceOf[js.Any], currentTarget = currentTarget.asInstanceOf[js.Any], defaultPrevented = defaultPrevented.asInstanceOf[js.Any], eventPhase = eventPhase.asInstanceOf[js.Any], isDefaultPrevented = isDefaultPrevented.toJsFn, isPropagationStopped = isPropagationStopped.toJsFn, isTrusted = isTrusted.asInstanceOf[js.Any], nativeEvent = nativeEvent.asInstanceOf[js.Any], persist = persist.toJsFn, preventDefault = preventDefault.toJsFn, relatedTarget = relatedTarget.asInstanceOf[js.Any], stopPropagation = stopPropagation.toJsFn, target = target.asInstanceOf[js.Any], timeStamp = timeStamp.asInstanceOf[js.Any])
+    val __obj = js.Dynamic.literal(bubbles = bubbles.asInstanceOf[js.Any], cancelable = cancelable.asInstanceOf[js.Any], currentTarget = currentTarget.asInstanceOf[js.Any], defaultPrevented = defaultPrevented.asInstanceOf[js.Any], eventPhase = eventPhase.asInstanceOf[js.Any], isDefaultPrevented = _sync.toJsFn(isDefaultPrevented), isPropagationStopped = _sync.toJsFn(isPropagationStopped), isTrusted = isTrusted.asInstanceOf[js.Any], nativeEvent = nativeEvent.asInstanceOf[js.Any], persist = _sync.toJsFn(persist), preventDefault = _sync.toJsFn(preventDefault), relatedTarget = relatedTarget.asInstanceOf[js.Any], stopPropagation = _sync.toJsFn(stopPropagation), target = target.asInstanceOf[js.Any], timeStamp = timeStamp.asInstanceOf[js.Any])
     __obj.updateDynamic("type")(`type`.asInstanceOf[js.Any])
     __obj.asInstanceOf[FocusEvent[T]]
   }

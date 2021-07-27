@@ -5,6 +5,7 @@ package flavours
 import org.scalablytyped.converter.internal.maps._
 import org.scalablytyped.converter.internal.scalajs.TypeParamTree.asTypeArgs
 import ExprTree._
+import org.scalablytyped.converter.internal.scalajs.flavours.Prop.EffectAgnostic
 
 import scala.collection.mutable
 
@@ -56,24 +57,27 @@ object GenBuilderClass {
           }
 
           val variantsMethods: IArray[MethodTree] = variantsForProp.mapToIArray {
-            case (methodName, Prop.Variant(tpe, asExpr, _, _)) =>
+            case (methodName, Prop.Variant(tpe, asExpr, _, _, maybeAgnostic)) =>
               val impl = Call(
                 globalSet,
                 IArray(IArray(Ref(x), StringLit(prop.originalName.unescaped), asExpr(Ref(value)))),
               )
               val valueParam = ParamTree(value, isImplicit = false, isVal = false, tpe, NotImplemented, NoComments)
-              MethodTree(
-                annotations = IArray(Annotation.Inline),
-                level       = ProtectionLevel.Public,
-                name        = methodName,
-                tparams     = Empty,
-                params      = IArray(IArray(valueParam)),
-                impl        = impl,
-                resultType  = selfRef,
-                isOverride  = false,
-                comments    = NoComments,
-                codePath    = clsCodePath + methodName,
-                isImplicit  = false,
+
+              EffectAgnostic.patch(maybeAgnostic)(
+                MethodTree(
+                  annotations = IArray(Annotation.Inline),
+                  level       = ProtectionLevel.Public,
+                  name        = methodName,
+                  tparams     = Empty,
+                  params      = IArray(IArray(valueParam)),
+                  impl        = impl,
+                  resultType  = selfRef,
+                  isOverride  = false,
+                  comments    = NoComments,
+                  codePath    = clsCodePath + methodName,
+                  isImplicit  = false,
+                ),
               )
           }
 

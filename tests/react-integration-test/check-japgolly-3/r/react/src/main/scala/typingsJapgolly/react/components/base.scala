@@ -1,6 +1,5 @@
 package typingsJapgolly.react.components
 
-import japgolly.scalajs.react.Callback
 import japgolly.scalajs.react.ReactAnimationEventFrom
 import japgolly.scalajs.react.ReactClipboardEventFrom
 import japgolly.scalajs.react.ReactCompositionEventFrom
@@ -14,6 +13,7 @@ import japgolly.scalajs.react.ReactTouchEventFrom
 import japgolly.scalajs.react.ReactTransitionEventFrom
 import japgolly.scalajs.react.ReactUIEventFrom
 import japgolly.scalajs.react.ReactWheelEventFrom
+import japgolly.scalajs.react.util.Effect.Sync
 import org.scalajs.dom.raw.Element
 import org.scalajs.dom.raw.HTMLBaseElement
 import typingsJapgolly.StBuildingComponent
@@ -220,163 +220,163 @@ object base {
     
     inline def lang(value: String): this.type = set("lang", value.asInstanceOf[js.Any])
     
-    inline def onAbort(value: ReactEventFrom[HTMLBaseElement & Element] => Callback): this.type = set("onAbort", js.Any.fromFunction1((t0: ReactEventFrom[HTMLBaseElement & Element]) => value(t0).runNow()))
+    inline def onAbort[F[_]](value: ReactEventFrom[HTMLBaseElement & Element] => F[Unit])(implicit _sync: Sync[F]): this.type = set("onAbort", js.Any.fromFunction1((t0: ReactEventFrom[HTMLBaseElement & Element]) => _sync.runSync(value(t0))))
     
-    inline def onAnimationEnd(value: ReactAnimationEventFrom[HTMLBaseElement & Element] => Callback): this.type = set("onAnimationEnd", js.Any.fromFunction1((t0: ReactAnimationEventFrom[HTMLBaseElement & Element]) => value(t0).runNow()))
+    inline def onAnimationEnd[F[_]](value: ReactAnimationEventFrom[HTMLBaseElement & Element] => F[Unit])(implicit _sync: Sync[F]): this.type = set("onAnimationEnd", js.Any.fromFunction1((t0: ReactAnimationEventFrom[HTMLBaseElement & Element]) => _sync.runSync(value(t0))))
     
-    inline def onAnimationIteration(value: ReactAnimationEventFrom[HTMLBaseElement & Element] => Callback): this.type = set("onAnimationIteration", js.Any.fromFunction1((t0: ReactAnimationEventFrom[HTMLBaseElement & Element]) => value(t0).runNow()))
+    inline def onAnimationIteration[F[_]](value: ReactAnimationEventFrom[HTMLBaseElement & Element] => F[Unit])(implicit _sync: Sync[F]): this.type = set("onAnimationIteration", js.Any.fromFunction1((t0: ReactAnimationEventFrom[HTMLBaseElement & Element]) => _sync.runSync(value(t0))))
     
-    inline def onAnimationStart(value: ReactAnimationEventFrom[HTMLBaseElement & Element] => Callback): this.type = set("onAnimationStart", js.Any.fromFunction1((t0: ReactAnimationEventFrom[HTMLBaseElement & Element]) => value(t0).runNow()))
+    inline def onAnimationStart[F[_]](value: ReactAnimationEventFrom[HTMLBaseElement & Element] => F[Unit])(implicit _sync: Sync[F]): this.type = set("onAnimationStart", js.Any.fromFunction1((t0: ReactAnimationEventFrom[HTMLBaseElement & Element]) => _sync.runSync(value(t0))))
     
-    inline def onAuxClick(value: ReactMouseEventFrom[HTMLBaseElement & Element] => Callback): this.type = set("onAuxClick", js.Any.fromFunction1((t0: ReactMouseEventFrom[HTMLBaseElement & Element]) => value(t0).runNow()))
+    inline def onAuxClick[F[_]](value: ReactMouseEventFrom[HTMLBaseElement & Element] => F[Unit])(implicit _sync: Sync[F]): this.type = set("onAuxClick", js.Any.fromFunction1((t0: ReactMouseEventFrom[HTMLBaseElement & Element]) => _sync.runSync(value(t0))))
     
-    inline def onBeforeInput(value: ReactEventFrom[HTMLBaseElement & Element] => Callback): this.type = set("onBeforeInput", js.Any.fromFunction1((t0: ReactEventFrom[HTMLBaseElement & Element]) => value(t0).runNow()))
+    inline def onBeforeInput[F[_]](value: ReactEventFrom[HTMLBaseElement & Element] => F[Unit])(implicit _sync: Sync[F]): this.type = set("onBeforeInput", js.Any.fromFunction1((t0: ReactEventFrom[HTMLBaseElement & Element]) => _sync.runSync(value(t0))))
     
-    inline def onBlur(value: ReactFocusEventFrom[HTMLBaseElement & Element] => Callback): this.type = set("onBlur", js.Any.fromFunction1((t0: ReactFocusEventFrom[HTMLBaseElement & Element]) => value(t0).runNow()))
+    inline def onBlur[F[_]](value: ReactFocusEventFrom[HTMLBaseElement & Element] => F[Unit])(implicit _sync: Sync[F]): this.type = set("onBlur", js.Any.fromFunction1((t0: ReactFocusEventFrom[HTMLBaseElement & Element]) => _sync.runSync(value(t0))))
     
-    inline def onCanPlay(value: ReactEventFrom[HTMLBaseElement & Element] => Callback): this.type = set("onCanPlay", js.Any.fromFunction1((t0: ReactEventFrom[HTMLBaseElement & Element]) => value(t0).runNow()))
+    inline def onCanPlay[F[_]](value: ReactEventFrom[HTMLBaseElement & Element] => F[Unit])(implicit _sync: Sync[F]): this.type = set("onCanPlay", js.Any.fromFunction1((t0: ReactEventFrom[HTMLBaseElement & Element]) => _sync.runSync(value(t0))))
     
-    inline def onCanPlayThrough(value: ReactEventFrom[HTMLBaseElement & Element] => Callback): this.type = set("onCanPlayThrough", js.Any.fromFunction1((t0: ReactEventFrom[HTMLBaseElement & Element]) => value(t0).runNow()))
+    inline def onCanPlayThrough[F[_]](value: ReactEventFrom[HTMLBaseElement & Element] => F[Unit])(implicit _sync: Sync[F]): this.type = set("onCanPlayThrough", js.Any.fromFunction1((t0: ReactEventFrom[HTMLBaseElement & Element]) => _sync.runSync(value(t0))))
     
-    inline def onChange(value: ReactEventFrom[HTMLBaseElement & Element] => Callback): this.type = set("onChange", js.Any.fromFunction1((t0: ReactEventFrom[HTMLBaseElement & Element]) => value(t0).runNow()))
+    inline def onChange[F[_]](value: ReactEventFrom[HTMLBaseElement & Element] => F[Unit])(implicit _sync: Sync[F]): this.type = set("onChange", js.Any.fromFunction1((t0: ReactEventFrom[HTMLBaseElement & Element]) => _sync.runSync(value(t0))))
     
-    inline def onClick(value: ReactMouseEventFrom[HTMLBaseElement & Element] => Callback): this.type = set("onClick", js.Any.fromFunction1((t0: ReactMouseEventFrom[HTMLBaseElement & Element]) => value(t0).runNow()))
+    inline def onClick[F[_]](value: ReactMouseEventFrom[HTMLBaseElement & Element] => F[Unit])(implicit _sync: Sync[F]): this.type = set("onClick", js.Any.fromFunction1((t0: ReactMouseEventFrom[HTMLBaseElement & Element]) => _sync.runSync(value(t0))))
     
-    inline def onCompositionEnd(value: ReactCompositionEventFrom[HTMLBaseElement & Element] => Callback): this.type = set("onCompositionEnd", js.Any.fromFunction1((t0: ReactCompositionEventFrom[HTMLBaseElement & Element]) => value(t0).runNow()))
+    inline def onCompositionEnd[F[_]](value: ReactCompositionEventFrom[HTMLBaseElement & Element] => F[Unit])(implicit _sync: Sync[F]): this.type = set("onCompositionEnd", js.Any.fromFunction1((t0: ReactCompositionEventFrom[HTMLBaseElement & Element]) => _sync.runSync(value(t0))))
     
-    inline def onCompositionStart(value: ReactCompositionEventFrom[HTMLBaseElement & Element] => Callback): this.type = set("onCompositionStart", js.Any.fromFunction1((t0: ReactCompositionEventFrom[HTMLBaseElement & Element]) => value(t0).runNow()))
+    inline def onCompositionStart[F[_]](value: ReactCompositionEventFrom[HTMLBaseElement & Element] => F[Unit])(implicit _sync: Sync[F]): this.type = set("onCompositionStart", js.Any.fromFunction1((t0: ReactCompositionEventFrom[HTMLBaseElement & Element]) => _sync.runSync(value(t0))))
     
-    inline def onCompositionUpdate(value: ReactCompositionEventFrom[HTMLBaseElement & Element] => Callback): this.type = set("onCompositionUpdate", js.Any.fromFunction1((t0: ReactCompositionEventFrom[HTMLBaseElement & Element]) => value(t0).runNow()))
+    inline def onCompositionUpdate[F[_]](value: ReactCompositionEventFrom[HTMLBaseElement & Element] => F[Unit])(implicit _sync: Sync[F]): this.type = set("onCompositionUpdate", js.Any.fromFunction1((t0: ReactCompositionEventFrom[HTMLBaseElement & Element]) => _sync.runSync(value(t0))))
     
-    inline def onContextMenu(value: ReactMouseEventFrom[HTMLBaseElement & Element] => Callback): this.type = set("onContextMenu", js.Any.fromFunction1((t0: ReactMouseEventFrom[HTMLBaseElement & Element]) => value(t0).runNow()))
+    inline def onContextMenu[F[_]](value: ReactMouseEventFrom[HTMLBaseElement & Element] => F[Unit])(implicit _sync: Sync[F]): this.type = set("onContextMenu", js.Any.fromFunction1((t0: ReactMouseEventFrom[HTMLBaseElement & Element]) => _sync.runSync(value(t0))))
     
-    inline def onCopy(value: ReactClipboardEventFrom[HTMLBaseElement & Element] => Callback): this.type = set("onCopy", js.Any.fromFunction1((t0: ReactClipboardEventFrom[HTMLBaseElement & Element]) => value(t0).runNow()))
+    inline def onCopy[F[_]](value: ReactClipboardEventFrom[HTMLBaseElement & Element] => F[Unit])(implicit _sync: Sync[F]): this.type = set("onCopy", js.Any.fromFunction1((t0: ReactClipboardEventFrom[HTMLBaseElement & Element]) => _sync.runSync(value(t0))))
     
-    inline def onCut(value: ReactClipboardEventFrom[HTMLBaseElement & Element] => Callback): this.type = set("onCut", js.Any.fromFunction1((t0: ReactClipboardEventFrom[HTMLBaseElement & Element]) => value(t0).runNow()))
+    inline def onCut[F[_]](value: ReactClipboardEventFrom[HTMLBaseElement & Element] => F[Unit])(implicit _sync: Sync[F]): this.type = set("onCut", js.Any.fromFunction1((t0: ReactClipboardEventFrom[HTMLBaseElement & Element]) => _sync.runSync(value(t0))))
     
-    inline def onDoubleClick(value: ReactMouseEventFrom[HTMLBaseElement & Element] => Callback): this.type = set("onDoubleClick", js.Any.fromFunction1((t0: ReactMouseEventFrom[HTMLBaseElement & Element]) => value(t0).runNow()))
+    inline def onDoubleClick[F[_]](value: ReactMouseEventFrom[HTMLBaseElement & Element] => F[Unit])(implicit _sync: Sync[F]): this.type = set("onDoubleClick", js.Any.fromFunction1((t0: ReactMouseEventFrom[HTMLBaseElement & Element]) => _sync.runSync(value(t0))))
     
-    inline def onDrag(value: ReactDragEventFrom[HTMLBaseElement & Element] => Callback): this.type = set("onDrag", js.Any.fromFunction1((t0: ReactDragEventFrom[HTMLBaseElement & Element]) => value(t0).runNow()))
+    inline def onDrag[F[_]](value: ReactDragEventFrom[HTMLBaseElement & Element] => F[Unit])(implicit _sync: Sync[F]): this.type = set("onDrag", js.Any.fromFunction1((t0: ReactDragEventFrom[HTMLBaseElement & Element]) => _sync.runSync(value(t0))))
     
-    inline def onDragEnd(value: ReactDragEventFrom[HTMLBaseElement & Element] => Callback): this.type = set("onDragEnd", js.Any.fromFunction1((t0: ReactDragEventFrom[HTMLBaseElement & Element]) => value(t0).runNow()))
+    inline def onDragEnd[F[_]](value: ReactDragEventFrom[HTMLBaseElement & Element] => F[Unit])(implicit _sync: Sync[F]): this.type = set("onDragEnd", js.Any.fromFunction1((t0: ReactDragEventFrom[HTMLBaseElement & Element]) => _sync.runSync(value(t0))))
     
-    inline def onDragEnter(value: ReactDragEventFrom[HTMLBaseElement & Element] => Callback): this.type = set("onDragEnter", js.Any.fromFunction1((t0: ReactDragEventFrom[HTMLBaseElement & Element]) => value(t0).runNow()))
+    inline def onDragEnter[F[_]](value: ReactDragEventFrom[HTMLBaseElement & Element] => F[Unit])(implicit _sync: Sync[F]): this.type = set("onDragEnter", js.Any.fromFunction1((t0: ReactDragEventFrom[HTMLBaseElement & Element]) => _sync.runSync(value(t0))))
     
-    inline def onDragExit(value: ReactDragEventFrom[HTMLBaseElement & Element] => Callback): this.type = set("onDragExit", js.Any.fromFunction1((t0: ReactDragEventFrom[HTMLBaseElement & Element]) => value(t0).runNow()))
+    inline def onDragExit[F[_]](value: ReactDragEventFrom[HTMLBaseElement & Element] => F[Unit])(implicit _sync: Sync[F]): this.type = set("onDragExit", js.Any.fromFunction1((t0: ReactDragEventFrom[HTMLBaseElement & Element]) => _sync.runSync(value(t0))))
     
-    inline def onDragLeave(value: ReactDragEventFrom[HTMLBaseElement & Element] => Callback): this.type = set("onDragLeave", js.Any.fromFunction1((t0: ReactDragEventFrom[HTMLBaseElement & Element]) => value(t0).runNow()))
+    inline def onDragLeave[F[_]](value: ReactDragEventFrom[HTMLBaseElement & Element] => F[Unit])(implicit _sync: Sync[F]): this.type = set("onDragLeave", js.Any.fromFunction1((t0: ReactDragEventFrom[HTMLBaseElement & Element]) => _sync.runSync(value(t0))))
     
-    inline def onDragOver(value: ReactDragEventFrom[HTMLBaseElement & Element] => Callback): this.type = set("onDragOver", js.Any.fromFunction1((t0: ReactDragEventFrom[HTMLBaseElement & Element]) => value(t0).runNow()))
+    inline def onDragOver[F[_]](value: ReactDragEventFrom[HTMLBaseElement & Element] => F[Unit])(implicit _sync: Sync[F]): this.type = set("onDragOver", js.Any.fromFunction1((t0: ReactDragEventFrom[HTMLBaseElement & Element]) => _sync.runSync(value(t0))))
     
-    inline def onDragStart(value: ReactDragEventFrom[HTMLBaseElement & Element] => Callback): this.type = set("onDragStart", js.Any.fromFunction1((t0: ReactDragEventFrom[HTMLBaseElement & Element]) => value(t0).runNow()))
+    inline def onDragStart[F[_]](value: ReactDragEventFrom[HTMLBaseElement & Element] => F[Unit])(implicit _sync: Sync[F]): this.type = set("onDragStart", js.Any.fromFunction1((t0: ReactDragEventFrom[HTMLBaseElement & Element]) => _sync.runSync(value(t0))))
     
-    inline def onDrop(value: ReactDragEventFrom[HTMLBaseElement & Element] => Callback): this.type = set("onDrop", js.Any.fromFunction1((t0: ReactDragEventFrom[HTMLBaseElement & Element]) => value(t0).runNow()))
+    inline def onDrop[F[_]](value: ReactDragEventFrom[HTMLBaseElement & Element] => F[Unit])(implicit _sync: Sync[F]): this.type = set("onDrop", js.Any.fromFunction1((t0: ReactDragEventFrom[HTMLBaseElement & Element]) => _sync.runSync(value(t0))))
     
-    inline def onDurationChange(value: ReactEventFrom[HTMLBaseElement & Element] => Callback): this.type = set("onDurationChange", js.Any.fromFunction1((t0: ReactEventFrom[HTMLBaseElement & Element]) => value(t0).runNow()))
+    inline def onDurationChange[F[_]](value: ReactEventFrom[HTMLBaseElement & Element] => F[Unit])(implicit _sync: Sync[F]): this.type = set("onDurationChange", js.Any.fromFunction1((t0: ReactEventFrom[HTMLBaseElement & Element]) => _sync.runSync(value(t0))))
     
-    inline def onEmptied(value: ReactEventFrom[HTMLBaseElement & Element] => Callback): this.type = set("onEmptied", js.Any.fromFunction1((t0: ReactEventFrom[HTMLBaseElement & Element]) => value(t0).runNow()))
+    inline def onEmptied[F[_]](value: ReactEventFrom[HTMLBaseElement & Element] => F[Unit])(implicit _sync: Sync[F]): this.type = set("onEmptied", js.Any.fromFunction1((t0: ReactEventFrom[HTMLBaseElement & Element]) => _sync.runSync(value(t0))))
     
-    inline def onEncrypted(value: ReactEventFrom[HTMLBaseElement & Element] => Callback): this.type = set("onEncrypted", js.Any.fromFunction1((t0: ReactEventFrom[HTMLBaseElement & Element]) => value(t0).runNow()))
+    inline def onEncrypted[F[_]](value: ReactEventFrom[HTMLBaseElement & Element] => F[Unit])(implicit _sync: Sync[F]): this.type = set("onEncrypted", js.Any.fromFunction1((t0: ReactEventFrom[HTMLBaseElement & Element]) => _sync.runSync(value(t0))))
     
-    inline def onEnded(value: ReactEventFrom[HTMLBaseElement & Element] => Callback): this.type = set("onEnded", js.Any.fromFunction1((t0: ReactEventFrom[HTMLBaseElement & Element]) => value(t0).runNow()))
+    inline def onEnded[F[_]](value: ReactEventFrom[HTMLBaseElement & Element] => F[Unit])(implicit _sync: Sync[F]): this.type = set("onEnded", js.Any.fromFunction1((t0: ReactEventFrom[HTMLBaseElement & Element]) => _sync.runSync(value(t0))))
     
-    inline def onError(value: ReactEventFrom[HTMLBaseElement & Element] => Callback): this.type = set("onError", js.Any.fromFunction1((t0: ReactEventFrom[HTMLBaseElement & Element]) => value(t0).runNow()))
+    inline def onError[F[_]](value: ReactEventFrom[HTMLBaseElement & Element] => F[Unit])(implicit _sync: Sync[F]): this.type = set("onError", js.Any.fromFunction1((t0: ReactEventFrom[HTMLBaseElement & Element]) => _sync.runSync(value(t0))))
     
-    inline def onFocus(value: ReactFocusEventFrom[HTMLBaseElement & Element] => Callback): this.type = set("onFocus", js.Any.fromFunction1((t0: ReactFocusEventFrom[HTMLBaseElement & Element]) => value(t0).runNow()))
+    inline def onFocus[F[_]](value: ReactFocusEventFrom[HTMLBaseElement & Element] => F[Unit])(implicit _sync: Sync[F]): this.type = set("onFocus", js.Any.fromFunction1((t0: ReactFocusEventFrom[HTMLBaseElement & Element]) => _sync.runSync(value(t0))))
     
-    inline def onInput(value: ReactEventFrom[HTMLBaseElement & Element] => Callback): this.type = set("onInput", js.Any.fromFunction1((t0: ReactEventFrom[HTMLBaseElement & Element]) => value(t0).runNow()))
+    inline def onInput[F[_]](value: ReactEventFrom[HTMLBaseElement & Element] => F[Unit])(implicit _sync: Sync[F]): this.type = set("onInput", js.Any.fromFunction1((t0: ReactEventFrom[HTMLBaseElement & Element]) => _sync.runSync(value(t0))))
     
-    inline def onInvalid(value: ReactEventFrom[HTMLBaseElement & Element] => Callback): this.type = set("onInvalid", js.Any.fromFunction1((t0: ReactEventFrom[HTMLBaseElement & Element]) => value(t0).runNow()))
+    inline def onInvalid[F[_]](value: ReactEventFrom[HTMLBaseElement & Element] => F[Unit])(implicit _sync: Sync[F]): this.type = set("onInvalid", js.Any.fromFunction1((t0: ReactEventFrom[HTMLBaseElement & Element]) => _sync.runSync(value(t0))))
     
-    inline def onKeyDown(value: ReactKeyboardEventFrom[HTMLBaseElement & Element] => Callback): this.type = set("onKeyDown", js.Any.fromFunction1((t0: ReactKeyboardEventFrom[HTMLBaseElement & Element]) => value(t0).runNow()))
+    inline def onKeyDown[F[_]](value: ReactKeyboardEventFrom[HTMLBaseElement & Element] => F[Unit])(implicit _sync: Sync[F]): this.type = set("onKeyDown", js.Any.fromFunction1((t0: ReactKeyboardEventFrom[HTMLBaseElement & Element]) => _sync.runSync(value(t0))))
     
-    inline def onKeyPress(value: ReactKeyboardEventFrom[HTMLBaseElement & Element] => Callback): this.type = set("onKeyPress", js.Any.fromFunction1((t0: ReactKeyboardEventFrom[HTMLBaseElement & Element]) => value(t0).runNow()))
+    inline def onKeyPress[F[_]](value: ReactKeyboardEventFrom[HTMLBaseElement & Element] => F[Unit])(implicit _sync: Sync[F]): this.type = set("onKeyPress", js.Any.fromFunction1((t0: ReactKeyboardEventFrom[HTMLBaseElement & Element]) => _sync.runSync(value(t0))))
     
-    inline def onKeyUp(value: ReactKeyboardEventFrom[HTMLBaseElement & Element] => Callback): this.type = set("onKeyUp", js.Any.fromFunction1((t0: ReactKeyboardEventFrom[HTMLBaseElement & Element]) => value(t0).runNow()))
+    inline def onKeyUp[F[_]](value: ReactKeyboardEventFrom[HTMLBaseElement & Element] => F[Unit])(implicit _sync: Sync[F]): this.type = set("onKeyUp", js.Any.fromFunction1((t0: ReactKeyboardEventFrom[HTMLBaseElement & Element]) => _sync.runSync(value(t0))))
     
-    inline def onLoad(value: ReactEventFrom[HTMLBaseElement & Element] => Callback): this.type = set("onLoad", js.Any.fromFunction1((t0: ReactEventFrom[HTMLBaseElement & Element]) => value(t0).runNow()))
+    inline def onLoad[F[_]](value: ReactEventFrom[HTMLBaseElement & Element] => F[Unit])(implicit _sync: Sync[F]): this.type = set("onLoad", js.Any.fromFunction1((t0: ReactEventFrom[HTMLBaseElement & Element]) => _sync.runSync(value(t0))))
     
-    inline def onLoadStart(value: ReactEventFrom[HTMLBaseElement & Element] => Callback): this.type = set("onLoadStart", js.Any.fromFunction1((t0: ReactEventFrom[HTMLBaseElement & Element]) => value(t0).runNow()))
+    inline def onLoadStart[F[_]](value: ReactEventFrom[HTMLBaseElement & Element] => F[Unit])(implicit _sync: Sync[F]): this.type = set("onLoadStart", js.Any.fromFunction1((t0: ReactEventFrom[HTMLBaseElement & Element]) => _sync.runSync(value(t0))))
     
-    inline def onLoadedData(value: ReactEventFrom[HTMLBaseElement & Element] => Callback): this.type = set("onLoadedData", js.Any.fromFunction1((t0: ReactEventFrom[HTMLBaseElement & Element]) => value(t0).runNow()))
+    inline def onLoadedData[F[_]](value: ReactEventFrom[HTMLBaseElement & Element] => F[Unit])(implicit _sync: Sync[F]): this.type = set("onLoadedData", js.Any.fromFunction1((t0: ReactEventFrom[HTMLBaseElement & Element]) => _sync.runSync(value(t0))))
     
-    inline def onLoadedMetadata(value: ReactEventFrom[HTMLBaseElement & Element] => Callback): this.type = set("onLoadedMetadata", js.Any.fromFunction1((t0: ReactEventFrom[HTMLBaseElement & Element]) => value(t0).runNow()))
+    inline def onLoadedMetadata[F[_]](value: ReactEventFrom[HTMLBaseElement & Element] => F[Unit])(implicit _sync: Sync[F]): this.type = set("onLoadedMetadata", js.Any.fromFunction1((t0: ReactEventFrom[HTMLBaseElement & Element]) => _sync.runSync(value(t0))))
     
-    inline def onMouseDown(value: ReactMouseEventFrom[HTMLBaseElement & Element] => Callback): this.type = set("onMouseDown", js.Any.fromFunction1((t0: ReactMouseEventFrom[HTMLBaseElement & Element]) => value(t0).runNow()))
+    inline def onMouseDown[F[_]](value: ReactMouseEventFrom[HTMLBaseElement & Element] => F[Unit])(implicit _sync: Sync[F]): this.type = set("onMouseDown", js.Any.fromFunction1((t0: ReactMouseEventFrom[HTMLBaseElement & Element]) => _sync.runSync(value(t0))))
     
-    inline def onMouseEnter(value: ReactMouseEventFrom[HTMLBaseElement & Element] => Callback): this.type = set("onMouseEnter", js.Any.fromFunction1((t0: ReactMouseEventFrom[HTMLBaseElement & Element]) => value(t0).runNow()))
+    inline def onMouseEnter[F[_]](value: ReactMouseEventFrom[HTMLBaseElement & Element] => F[Unit])(implicit _sync: Sync[F]): this.type = set("onMouseEnter", js.Any.fromFunction1((t0: ReactMouseEventFrom[HTMLBaseElement & Element]) => _sync.runSync(value(t0))))
     
-    inline def onMouseLeave(value: ReactMouseEventFrom[HTMLBaseElement & Element] => Callback): this.type = set("onMouseLeave", js.Any.fromFunction1((t0: ReactMouseEventFrom[HTMLBaseElement & Element]) => value(t0).runNow()))
+    inline def onMouseLeave[F[_]](value: ReactMouseEventFrom[HTMLBaseElement & Element] => F[Unit])(implicit _sync: Sync[F]): this.type = set("onMouseLeave", js.Any.fromFunction1((t0: ReactMouseEventFrom[HTMLBaseElement & Element]) => _sync.runSync(value(t0))))
     
-    inline def onMouseMove(value: ReactMouseEventFrom[HTMLBaseElement & Element] => Callback): this.type = set("onMouseMove", js.Any.fromFunction1((t0: ReactMouseEventFrom[HTMLBaseElement & Element]) => value(t0).runNow()))
+    inline def onMouseMove[F[_]](value: ReactMouseEventFrom[HTMLBaseElement & Element] => F[Unit])(implicit _sync: Sync[F]): this.type = set("onMouseMove", js.Any.fromFunction1((t0: ReactMouseEventFrom[HTMLBaseElement & Element]) => _sync.runSync(value(t0))))
     
-    inline def onMouseOut(value: ReactMouseEventFrom[HTMLBaseElement & Element] => Callback): this.type = set("onMouseOut", js.Any.fromFunction1((t0: ReactMouseEventFrom[HTMLBaseElement & Element]) => value(t0).runNow()))
+    inline def onMouseOut[F[_]](value: ReactMouseEventFrom[HTMLBaseElement & Element] => F[Unit])(implicit _sync: Sync[F]): this.type = set("onMouseOut", js.Any.fromFunction1((t0: ReactMouseEventFrom[HTMLBaseElement & Element]) => _sync.runSync(value(t0))))
     
-    inline def onMouseOver(value: ReactMouseEventFrom[HTMLBaseElement & Element] => Callback): this.type = set("onMouseOver", js.Any.fromFunction1((t0: ReactMouseEventFrom[HTMLBaseElement & Element]) => value(t0).runNow()))
+    inline def onMouseOver[F[_]](value: ReactMouseEventFrom[HTMLBaseElement & Element] => F[Unit])(implicit _sync: Sync[F]): this.type = set("onMouseOver", js.Any.fromFunction1((t0: ReactMouseEventFrom[HTMLBaseElement & Element]) => _sync.runSync(value(t0))))
     
-    inline def onMouseUp(value: ReactMouseEventFrom[HTMLBaseElement & Element] => Callback): this.type = set("onMouseUp", js.Any.fromFunction1((t0: ReactMouseEventFrom[HTMLBaseElement & Element]) => value(t0).runNow()))
+    inline def onMouseUp[F[_]](value: ReactMouseEventFrom[HTMLBaseElement & Element] => F[Unit])(implicit _sync: Sync[F]): this.type = set("onMouseUp", js.Any.fromFunction1((t0: ReactMouseEventFrom[HTMLBaseElement & Element]) => _sync.runSync(value(t0))))
     
-    inline def onPaste(value: ReactClipboardEventFrom[HTMLBaseElement & Element] => Callback): this.type = set("onPaste", js.Any.fromFunction1((t0: ReactClipboardEventFrom[HTMLBaseElement & Element]) => value(t0).runNow()))
+    inline def onPaste[F[_]](value: ReactClipboardEventFrom[HTMLBaseElement & Element] => F[Unit])(implicit _sync: Sync[F]): this.type = set("onPaste", js.Any.fromFunction1((t0: ReactClipboardEventFrom[HTMLBaseElement & Element]) => _sync.runSync(value(t0))))
     
-    inline def onPause(value: ReactEventFrom[HTMLBaseElement & Element] => Callback): this.type = set("onPause", js.Any.fromFunction1((t0: ReactEventFrom[HTMLBaseElement & Element]) => value(t0).runNow()))
+    inline def onPause[F[_]](value: ReactEventFrom[HTMLBaseElement & Element] => F[Unit])(implicit _sync: Sync[F]): this.type = set("onPause", js.Any.fromFunction1((t0: ReactEventFrom[HTMLBaseElement & Element]) => _sync.runSync(value(t0))))
     
-    inline def onPlay(value: ReactEventFrom[HTMLBaseElement & Element] => Callback): this.type = set("onPlay", js.Any.fromFunction1((t0: ReactEventFrom[HTMLBaseElement & Element]) => value(t0).runNow()))
+    inline def onPlay[F[_]](value: ReactEventFrom[HTMLBaseElement & Element] => F[Unit])(implicit _sync: Sync[F]): this.type = set("onPlay", js.Any.fromFunction1((t0: ReactEventFrom[HTMLBaseElement & Element]) => _sync.runSync(value(t0))))
     
-    inline def onPlaying(value: ReactEventFrom[HTMLBaseElement & Element] => Callback): this.type = set("onPlaying", js.Any.fromFunction1((t0: ReactEventFrom[HTMLBaseElement & Element]) => value(t0).runNow()))
+    inline def onPlaying[F[_]](value: ReactEventFrom[HTMLBaseElement & Element] => F[Unit])(implicit _sync: Sync[F]): this.type = set("onPlaying", js.Any.fromFunction1((t0: ReactEventFrom[HTMLBaseElement & Element]) => _sync.runSync(value(t0))))
     
-    inline def onPointerCancel(value: ReactPointerEventFrom[HTMLBaseElement & Element] => Callback): this.type = set("onPointerCancel", js.Any.fromFunction1((t0: ReactPointerEventFrom[HTMLBaseElement & Element]) => value(t0).runNow()))
+    inline def onPointerCancel[F[_]](value: ReactPointerEventFrom[HTMLBaseElement & Element] => F[Unit])(implicit _sync: Sync[F]): this.type = set("onPointerCancel", js.Any.fromFunction1((t0: ReactPointerEventFrom[HTMLBaseElement & Element]) => _sync.runSync(value(t0))))
     
-    inline def onPointerDown(value: ReactPointerEventFrom[HTMLBaseElement & Element] => Callback): this.type = set("onPointerDown", js.Any.fromFunction1((t0: ReactPointerEventFrom[HTMLBaseElement & Element]) => value(t0).runNow()))
+    inline def onPointerDown[F[_]](value: ReactPointerEventFrom[HTMLBaseElement & Element] => F[Unit])(implicit _sync: Sync[F]): this.type = set("onPointerDown", js.Any.fromFunction1((t0: ReactPointerEventFrom[HTMLBaseElement & Element]) => _sync.runSync(value(t0))))
     
-    inline def onPointerEnter(value: ReactPointerEventFrom[HTMLBaseElement & Element] => Callback): this.type = set("onPointerEnter", js.Any.fromFunction1((t0: ReactPointerEventFrom[HTMLBaseElement & Element]) => value(t0).runNow()))
+    inline def onPointerEnter[F[_]](value: ReactPointerEventFrom[HTMLBaseElement & Element] => F[Unit])(implicit _sync: Sync[F]): this.type = set("onPointerEnter", js.Any.fromFunction1((t0: ReactPointerEventFrom[HTMLBaseElement & Element]) => _sync.runSync(value(t0))))
     
-    inline def onPointerLeave(value: ReactPointerEventFrom[HTMLBaseElement & Element] => Callback): this.type = set("onPointerLeave", js.Any.fromFunction1((t0: ReactPointerEventFrom[HTMLBaseElement & Element]) => value(t0).runNow()))
+    inline def onPointerLeave[F[_]](value: ReactPointerEventFrom[HTMLBaseElement & Element] => F[Unit])(implicit _sync: Sync[F]): this.type = set("onPointerLeave", js.Any.fromFunction1((t0: ReactPointerEventFrom[HTMLBaseElement & Element]) => _sync.runSync(value(t0))))
     
-    inline def onPointerMove(value: ReactPointerEventFrom[HTMLBaseElement & Element] => Callback): this.type = set("onPointerMove", js.Any.fromFunction1((t0: ReactPointerEventFrom[HTMLBaseElement & Element]) => value(t0).runNow()))
+    inline def onPointerMove[F[_]](value: ReactPointerEventFrom[HTMLBaseElement & Element] => F[Unit])(implicit _sync: Sync[F]): this.type = set("onPointerMove", js.Any.fromFunction1((t0: ReactPointerEventFrom[HTMLBaseElement & Element]) => _sync.runSync(value(t0))))
     
-    inline def onPointerOut(value: ReactPointerEventFrom[HTMLBaseElement & Element] => Callback): this.type = set("onPointerOut", js.Any.fromFunction1((t0: ReactPointerEventFrom[HTMLBaseElement & Element]) => value(t0).runNow()))
+    inline def onPointerOut[F[_]](value: ReactPointerEventFrom[HTMLBaseElement & Element] => F[Unit])(implicit _sync: Sync[F]): this.type = set("onPointerOut", js.Any.fromFunction1((t0: ReactPointerEventFrom[HTMLBaseElement & Element]) => _sync.runSync(value(t0))))
     
-    inline def onPointerOver(value: ReactPointerEventFrom[HTMLBaseElement & Element] => Callback): this.type = set("onPointerOver", js.Any.fromFunction1((t0: ReactPointerEventFrom[HTMLBaseElement & Element]) => value(t0).runNow()))
+    inline def onPointerOver[F[_]](value: ReactPointerEventFrom[HTMLBaseElement & Element] => F[Unit])(implicit _sync: Sync[F]): this.type = set("onPointerOver", js.Any.fromFunction1((t0: ReactPointerEventFrom[HTMLBaseElement & Element]) => _sync.runSync(value(t0))))
     
-    inline def onPointerUp(value: ReactPointerEventFrom[HTMLBaseElement & Element] => Callback): this.type = set("onPointerUp", js.Any.fromFunction1((t0: ReactPointerEventFrom[HTMLBaseElement & Element]) => value(t0).runNow()))
+    inline def onPointerUp[F[_]](value: ReactPointerEventFrom[HTMLBaseElement & Element] => F[Unit])(implicit _sync: Sync[F]): this.type = set("onPointerUp", js.Any.fromFunction1((t0: ReactPointerEventFrom[HTMLBaseElement & Element]) => _sync.runSync(value(t0))))
     
-    inline def onProgress(value: ReactEventFrom[HTMLBaseElement & Element] => Callback): this.type = set("onProgress", js.Any.fromFunction1((t0: ReactEventFrom[HTMLBaseElement & Element]) => value(t0).runNow()))
+    inline def onProgress[F[_]](value: ReactEventFrom[HTMLBaseElement & Element] => F[Unit])(implicit _sync: Sync[F]): this.type = set("onProgress", js.Any.fromFunction1((t0: ReactEventFrom[HTMLBaseElement & Element]) => _sync.runSync(value(t0))))
     
-    inline def onRateChange(value: ReactEventFrom[HTMLBaseElement & Element] => Callback): this.type = set("onRateChange", js.Any.fromFunction1((t0: ReactEventFrom[HTMLBaseElement & Element]) => value(t0).runNow()))
+    inline def onRateChange[F[_]](value: ReactEventFrom[HTMLBaseElement & Element] => F[Unit])(implicit _sync: Sync[F]): this.type = set("onRateChange", js.Any.fromFunction1((t0: ReactEventFrom[HTMLBaseElement & Element]) => _sync.runSync(value(t0))))
     
-    inline def onReset(value: ReactEventFrom[HTMLBaseElement & Element] => Callback): this.type = set("onReset", js.Any.fromFunction1((t0: ReactEventFrom[HTMLBaseElement & Element]) => value(t0).runNow()))
+    inline def onReset[F[_]](value: ReactEventFrom[HTMLBaseElement & Element] => F[Unit])(implicit _sync: Sync[F]): this.type = set("onReset", js.Any.fromFunction1((t0: ReactEventFrom[HTMLBaseElement & Element]) => _sync.runSync(value(t0))))
     
-    inline def onScroll(value: ReactUIEventFrom[HTMLBaseElement & Element] => Callback): this.type = set("onScroll", js.Any.fromFunction1((t0: ReactUIEventFrom[HTMLBaseElement & Element]) => value(t0).runNow()))
+    inline def onScroll[F[_]](value: ReactUIEventFrom[HTMLBaseElement & Element] => F[Unit])(implicit _sync: Sync[F]): this.type = set("onScroll", js.Any.fromFunction1((t0: ReactUIEventFrom[HTMLBaseElement & Element]) => _sync.runSync(value(t0))))
     
-    inline def onSeeked(value: ReactEventFrom[HTMLBaseElement & Element] => Callback): this.type = set("onSeeked", js.Any.fromFunction1((t0: ReactEventFrom[HTMLBaseElement & Element]) => value(t0).runNow()))
+    inline def onSeeked[F[_]](value: ReactEventFrom[HTMLBaseElement & Element] => F[Unit])(implicit _sync: Sync[F]): this.type = set("onSeeked", js.Any.fromFunction1((t0: ReactEventFrom[HTMLBaseElement & Element]) => _sync.runSync(value(t0))))
     
-    inline def onSeeking(value: ReactEventFrom[HTMLBaseElement & Element] => Callback): this.type = set("onSeeking", js.Any.fromFunction1((t0: ReactEventFrom[HTMLBaseElement & Element]) => value(t0).runNow()))
+    inline def onSeeking[F[_]](value: ReactEventFrom[HTMLBaseElement & Element] => F[Unit])(implicit _sync: Sync[F]): this.type = set("onSeeking", js.Any.fromFunction1((t0: ReactEventFrom[HTMLBaseElement & Element]) => _sync.runSync(value(t0))))
     
-    inline def onSelect(value: ReactEventFrom[HTMLBaseElement & Element] => Callback): this.type = set("onSelect", js.Any.fromFunction1((t0: ReactEventFrom[HTMLBaseElement & Element]) => value(t0).runNow()))
+    inline def onSelect[F[_]](value: ReactEventFrom[HTMLBaseElement & Element] => F[Unit])(implicit _sync: Sync[F]): this.type = set("onSelect", js.Any.fromFunction1((t0: ReactEventFrom[HTMLBaseElement & Element]) => _sync.runSync(value(t0))))
     
-    inline def onStalled(value: ReactEventFrom[HTMLBaseElement & Element] => Callback): this.type = set("onStalled", js.Any.fromFunction1((t0: ReactEventFrom[HTMLBaseElement & Element]) => value(t0).runNow()))
+    inline def onStalled[F[_]](value: ReactEventFrom[HTMLBaseElement & Element] => F[Unit])(implicit _sync: Sync[F]): this.type = set("onStalled", js.Any.fromFunction1((t0: ReactEventFrom[HTMLBaseElement & Element]) => _sync.runSync(value(t0))))
     
-    inline def onSubmit(value: ReactEventFrom[HTMLBaseElement & Element] => Callback): this.type = set("onSubmit", js.Any.fromFunction1((t0: ReactEventFrom[HTMLBaseElement & Element]) => value(t0).runNow()))
+    inline def onSubmit[F[_]](value: ReactEventFrom[HTMLBaseElement & Element] => F[Unit])(implicit _sync: Sync[F]): this.type = set("onSubmit", js.Any.fromFunction1((t0: ReactEventFrom[HTMLBaseElement & Element]) => _sync.runSync(value(t0))))
     
-    inline def onSuspend(value: ReactEventFrom[HTMLBaseElement & Element] => Callback): this.type = set("onSuspend", js.Any.fromFunction1((t0: ReactEventFrom[HTMLBaseElement & Element]) => value(t0).runNow()))
+    inline def onSuspend[F[_]](value: ReactEventFrom[HTMLBaseElement & Element] => F[Unit])(implicit _sync: Sync[F]): this.type = set("onSuspend", js.Any.fromFunction1((t0: ReactEventFrom[HTMLBaseElement & Element]) => _sync.runSync(value(t0))))
     
-    inline def onTimeUpdate(value: ReactEventFrom[HTMLBaseElement & Element] => Callback): this.type = set("onTimeUpdate", js.Any.fromFunction1((t0: ReactEventFrom[HTMLBaseElement & Element]) => value(t0).runNow()))
+    inline def onTimeUpdate[F[_]](value: ReactEventFrom[HTMLBaseElement & Element] => F[Unit])(implicit _sync: Sync[F]): this.type = set("onTimeUpdate", js.Any.fromFunction1((t0: ReactEventFrom[HTMLBaseElement & Element]) => _sync.runSync(value(t0))))
     
-    inline def onTouchCancel(value: ReactTouchEventFrom[HTMLBaseElement & Element] => Callback): this.type = set("onTouchCancel", js.Any.fromFunction1((t0: ReactTouchEventFrom[HTMLBaseElement & Element]) => value(t0).runNow()))
+    inline def onTouchCancel[F[_]](value: ReactTouchEventFrom[HTMLBaseElement & Element] => F[Unit])(implicit _sync: Sync[F]): this.type = set("onTouchCancel", js.Any.fromFunction1((t0: ReactTouchEventFrom[HTMLBaseElement & Element]) => _sync.runSync(value(t0))))
     
-    inline def onTouchEnd(value: ReactTouchEventFrom[HTMLBaseElement & Element] => Callback): this.type = set("onTouchEnd", js.Any.fromFunction1((t0: ReactTouchEventFrom[HTMLBaseElement & Element]) => value(t0).runNow()))
+    inline def onTouchEnd[F[_]](value: ReactTouchEventFrom[HTMLBaseElement & Element] => F[Unit])(implicit _sync: Sync[F]): this.type = set("onTouchEnd", js.Any.fromFunction1((t0: ReactTouchEventFrom[HTMLBaseElement & Element]) => _sync.runSync(value(t0))))
     
-    inline def onTouchMove(value: ReactTouchEventFrom[HTMLBaseElement & Element] => Callback): this.type = set("onTouchMove", js.Any.fromFunction1((t0: ReactTouchEventFrom[HTMLBaseElement & Element]) => value(t0).runNow()))
+    inline def onTouchMove[F[_]](value: ReactTouchEventFrom[HTMLBaseElement & Element] => F[Unit])(implicit _sync: Sync[F]): this.type = set("onTouchMove", js.Any.fromFunction1((t0: ReactTouchEventFrom[HTMLBaseElement & Element]) => _sync.runSync(value(t0))))
     
-    inline def onTouchStart(value: ReactTouchEventFrom[HTMLBaseElement & Element] => Callback): this.type = set("onTouchStart", js.Any.fromFunction1((t0: ReactTouchEventFrom[HTMLBaseElement & Element]) => value(t0).runNow()))
+    inline def onTouchStart[F[_]](value: ReactTouchEventFrom[HTMLBaseElement & Element] => F[Unit])(implicit _sync: Sync[F]): this.type = set("onTouchStart", js.Any.fromFunction1((t0: ReactTouchEventFrom[HTMLBaseElement & Element]) => _sync.runSync(value(t0))))
     
-    inline def onTransitionEnd(value: ReactTransitionEventFrom[HTMLBaseElement & Element] => Callback): this.type = set("onTransitionEnd", js.Any.fromFunction1((t0: ReactTransitionEventFrom[HTMLBaseElement & Element]) => value(t0).runNow()))
+    inline def onTransitionEnd[F[_]](value: ReactTransitionEventFrom[HTMLBaseElement & Element] => F[Unit])(implicit _sync: Sync[F]): this.type = set("onTransitionEnd", js.Any.fromFunction1((t0: ReactTransitionEventFrom[HTMLBaseElement & Element]) => _sync.runSync(value(t0))))
     
-    inline def onVolumeChange(value: ReactEventFrom[HTMLBaseElement & Element] => Callback): this.type = set("onVolumeChange", js.Any.fromFunction1((t0: ReactEventFrom[HTMLBaseElement & Element]) => value(t0).runNow()))
+    inline def onVolumeChange[F[_]](value: ReactEventFrom[HTMLBaseElement & Element] => F[Unit])(implicit _sync: Sync[F]): this.type = set("onVolumeChange", js.Any.fromFunction1((t0: ReactEventFrom[HTMLBaseElement & Element]) => _sync.runSync(value(t0))))
     
-    inline def onWaiting(value: ReactEventFrom[HTMLBaseElement & Element] => Callback): this.type = set("onWaiting", js.Any.fromFunction1((t0: ReactEventFrom[HTMLBaseElement & Element]) => value(t0).runNow()))
+    inline def onWaiting[F[_]](value: ReactEventFrom[HTMLBaseElement & Element] => F[Unit])(implicit _sync: Sync[F]): this.type = set("onWaiting", js.Any.fromFunction1((t0: ReactEventFrom[HTMLBaseElement & Element]) => _sync.runSync(value(t0))))
     
-    inline def onWheel(value: ReactWheelEventFrom[HTMLBaseElement & Element] => Callback): this.type = set("onWheel", js.Any.fromFunction1((t0: ReactWheelEventFrom[HTMLBaseElement & Element]) => value(t0).runNow()))
+    inline def onWheel[F[_]](value: ReactWheelEventFrom[HTMLBaseElement & Element] => F[Unit])(implicit _sync: Sync[F]): this.type = set("onWheel", js.Any.fromFunction1((t0: ReactWheelEventFrom[HTMLBaseElement & Element]) => _sync.runSync(value(t0))))
     
     inline def placeholder(value: String): this.type = set("placeholder", value.asInstanceOf[js.Any])
     

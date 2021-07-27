@@ -486,11 +486,13 @@ object Printer {
       else q.parts.map(formatName).mkString(".")
 
     def formatName(name: Name): String = name match {
-      case `outputPackage` => outputPackage.unescaped // this let's dots in chosen package name slip through
-      case Name.APPLY      => "apply"
-      case Name.THIS       => "this"
-      case Name.SUPER      => "super"
-      case other           => other.value
+      case `outputPackage`                    => outputPackage.unescaped // this let's dots in chosen package name slip through
+      case Name.APPLY                         => "apply"
+      case Name.THIS                          => "this"
+      case Name.SUPER                         => "super"
+      case Name.WILDCARD if scalaVersion.is3  => "?"
+      case Name.WILDCARD | Name.HIGHER_KINDED => "_"
+      case other                              => other.value
     }
 
     val StringOrdering: Ordering[String] = Ordering[String]
@@ -513,10 +515,8 @@ object Printer {
             }
             s"$params => ${formatTypeRef(indent)(retType)}"
 
-          case TypeRef.ThisType(_)                  => "this.type"
-          case TypeRef.Wildcard if scalaVersion.is3 => "?"
-          case TypeRef.Wildcard                     => "_"
-          case TypeRef.Singleton(underlying)        => formatTypeRef(indent)(underlying) |+| ".type"
+          case TypeRef.ThisType(_)           => "this.type"
+          case TypeRef.Singleton(underlying) => formatTypeRef(indent)(underlying) |+| ".type"
 
           case TypeRef.Intersection(types, _) if scalaVersion.is3 =>
             types.map(formatTypeRef(indent)).map(paramsIfNeeded).mkString(" & ")

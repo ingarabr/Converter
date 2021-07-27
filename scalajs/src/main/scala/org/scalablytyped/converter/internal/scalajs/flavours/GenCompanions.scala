@@ -6,6 +6,7 @@ import org.scalablytyped.converter.internal.maps._
 import org.scalablytyped.converter.internal.scalajs.ExprTree._
 import org.scalablytyped.converter.internal.scalajs.TypeParamTree.asTypeArgs
 import org.scalablytyped.converter.internal.scalajs.flavours.FindProps.Res
+import org.scalablytyped.converter.internal.scalajs.flavours.Prop.EffectAgnostic
 import org.scalablytyped.converter.internal.scalajs.transforms.ModulesCombine
 
 /**
@@ -72,6 +73,7 @@ final class GenCompanions(findProps: FindProps, enableLongApplyMethod: Boolean) 
                 IArray.fromOptions(
                   Some(generateCreator(Name.APPLY, cm, cls.codePath, cls.tparams))
                     .filter(_.params.nonEmpty)
+                    .map(EffectAgnostic.patch(props))
                     .filter(ensureNotTooManyStrings(scope)),
                 )
 
@@ -85,6 +87,7 @@ final class GenCompanions(findProps: FindProps, enableLongApplyMethod: Boolean) 
 
                     Some(generateCreator(propsRef.name, cm, propsRef.typeName, tparams))
                       .filter(_.params.nonEmpty)
+                      .map(EffectAgnostic.patch(props))
                       .filter(ensureNotTooManyStrings(scope))
                 }
             }

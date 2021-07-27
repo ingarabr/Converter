@@ -1,5 +1,6 @@
 package typingsJapgolly.react.mod
 
+import japgolly.scalajs.react.util.Effect.Sync
 import org.scalablytyped.runtime.StObject
 import scala.scalajs.js
 import scala.scalajs.js.annotation.{JSGlobalScope, JSGlobal, JSImport, JSName, JSBracketAccess}
@@ -24,7 +25,7 @@ trait MeterHTMLAttributes[T]
 }
 object MeterHTMLAttributes {
   
-  inline def apply[T](): MeterHTMLAttributes[T] = {
+  inline def apply[F[_], T]()(implicit _sync: Sync[F]): MeterHTMLAttributes[T] = {
     val __obj = js.Dynamic.literal()
     __obj.asInstanceOf[MeterHTMLAttributes[T]]
   }

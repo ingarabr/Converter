@@ -1,12 +1,12 @@
 package typingsJapgolly.semanticUiReact
 
-import japgolly.scalajs.react.Callback
 import japgolly.scalajs.react.ReactMouseEventFrom
 import japgolly.scalajs.react.facade.Empty
 import japgolly.scalajs.react.facade.JsNumber
 import japgolly.scalajs.react.facade.React.ComponentClassP
 import japgolly.scalajs.react.facade.React.Element
 import japgolly.scalajs.react.facade.React.Node
+import japgolly.scalajs.react.util.Effect.Sync
 import japgolly.scalajs.react.vdom.VdomElement
 import japgolly.scalajs.react.vdom.VdomNode
 import org.scalablytyped.runtime.Shortcut
@@ -41,7 +41,7 @@ object accordionAccordionAccordionMod extends Shortcut {
        with /* key */ StringDictionary[js.Any]
   object AccordionAccordionProps {
     
-    inline def apply(): AccordionAccordionProps = {
+    inline def apply[F[_]]()(implicit _sync: Sync[F]): AccordionAccordionProps = {
       val __obj = js.Dynamic.literal()
       __obj.asInstanceOf[AccordionAccordionProps]
     }
@@ -86,7 +86,7 @@ object accordionAccordionAccordionMod extends Shortcut {
   }
   object StrictAccordionAccordionProps {
     
-    inline def apply(): StrictAccordionAccordionProps = {
+    inline def apply[F[_]]()(implicit _sync: Sync[F]): StrictAccordionAccordionProps = {
       val __obj = js.Dynamic.literal()
       __obj.asInstanceOf[StrictAccordionAccordionProps]
     }
@@ -127,9 +127,11 @@ object accordionAccordionAccordionMod extends Shortcut {
       
       inline def setExclusiveUndefined: Self = StObject.set(x, "exclusive", js.undefined)
       
-      inline def setOnTitleClick(
-        value: (/* event */ ReactMouseEventFrom[HTMLDivElement], /* data */ AccordionTitleProps) => Callback
-      ): Self = StObject.set(x, "onTitleClick", js.Any.fromFunction2((t0: /* event */ ReactMouseEventFrom[HTMLDivElement], t1: /* data */ AccordionTitleProps) => (value(t0, t1)).runNow()))
+      inline def setOnTitleClick[F[_]](
+        value: (/* event */ ReactMouseEventFrom[HTMLDivElement], /* data */ AccordionTitleProps) => F[Unit]
+      )(
+        implicit _sync: Sync[F]
+      ): Self = StObject.set(x, "onTitleClick", js.Any.fromFunction2((t0: /* event */ ReactMouseEventFrom[HTMLDivElement], t1: /* data */ AccordionTitleProps) => _sync.runSync(value(t0, t1))))
       
       inline def setOnTitleClickUndefined: Self = StObject.set(x, "onTitleClick", js.undefined)
       

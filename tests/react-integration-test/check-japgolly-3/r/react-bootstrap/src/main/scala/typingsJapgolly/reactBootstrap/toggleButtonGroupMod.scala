@@ -1,6 +1,6 @@
 package typingsJapgolly.reactBootstrap
 
-import japgolly.scalajs.react.Callback
+import japgolly.scalajs.react.util.Effect.Sync
 import typingsJapgolly.react.mod.Component
 import typingsJapgolly.react.mod.HTMLProps
 import typingsJapgolly.reactBootstrap.buttonGroupMod.ButtonGroupProps
@@ -65,7 +65,7 @@ object toggleButtonGroupMod {
   }
   object CheckboxProps {
     
-    inline def apply(): CheckboxProps = {
+    inline def apply[F[_]]()(implicit _sync: Sync[F]): CheckboxProps = {
       val __obj = js.Dynamic.literal()
       __obj.updateDynamic("type")("checkbox")
       __obj.asInstanceOf[CheckboxProps]
@@ -77,7 +77,7 @@ object toggleButtonGroupMod {
       
       inline def setNameUndefined: Self = StObject.set(x, "name", js.undefined)
       
-      inline def setOnChange(value: /* values */ js.Array[js.Any] => Callback): Self = StObject.set(x, "onChange", js.Any.fromFunction1((t0: /* values */ js.Array[js.Any]) => value(t0).runNow()))
+      inline def setOnChange[F[_]](value: /* values */ js.Array[js.Any] => F[Unit])(implicit _sync: Sync[F]): Self = StObject.set(x, "onChange", js.Any.fromFunction1((t0: /* values */ js.Array[js.Any]) => _sync.runSync(value(t0))))
       
       inline def setOnChangeUndefined: Self = StObject.set(x, "onChange", js.undefined)
       
@@ -96,7 +96,7 @@ object toggleButtonGroupMod {
   }
   object RadioProps {
     
-    inline def apply(name: String): RadioProps = {
+    inline def apply[F[_]](name: String)(implicit _sync: Sync[F]): RadioProps = {
       val __obj = js.Dynamic.literal(name = name.asInstanceOf[js.Any])
       __obj.updateDynamic("type")("radio")
       __obj.asInstanceOf[RadioProps]
@@ -106,7 +106,7 @@ object toggleButtonGroupMod {
       
       inline def setName(value: String): Self = StObject.set(x, "name", value.asInstanceOf[js.Any])
       
-      inline def setOnChange(value: /* value */ js.Any => Callback): Self = StObject.set(x, "onChange", js.Any.fromFunction1((t0: /* value */ js.Any) => value(t0).runNow()))
+      inline def setOnChange[F[_]](value: /* value */ js.Any => F[Unit])(implicit _sync: Sync[F]): Self = StObject.set(x, "onChange", js.Any.fromFunction1((t0: /* value */ js.Any) => _sync.runSync(value(t0))))
       
       inline def setOnChangeUndefined: Self = StObject.set(x, "onChange", js.undefined)
       

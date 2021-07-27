@@ -1,5 +1,6 @@
 package typingsJapgolly.react.mod
 
+import japgolly.scalajs.react.util.Effect.Sync
 import typingsJapgolly.react.reactStrings.center
 import typingsJapgolly.react.reactStrings.char
 import typingsJapgolly.react.reactStrings.justify
@@ -25,7 +26,7 @@ trait ThHTMLAttributes[T]
 }
 object ThHTMLAttributes {
   
-  inline def apply[T](): ThHTMLAttributes[T] = {
+  inline def apply[F[_], T]()(implicit _sync: Sync[F]): ThHTMLAttributes[T] = {
     val __obj = js.Dynamic.literal()
     __obj.asInstanceOf[ThHTMLAttributes[T]]
   }

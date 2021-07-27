@@ -1,6 +1,6 @@
 package typingsJapgolly.react.mod
 
-import japgolly.scalajs.react.Callback
+import japgolly.scalajs.react.util.Effect.Sync
 import org.scalablytyped.runtime.StObject
 import scala.scalajs.js
 import scala.scalajs.js.annotation.{JSGlobalScope, JSGlobal, JSImport, JSName, JSBracketAccess}
@@ -55,24 +55,26 @@ trait ComponentLifecycle[P, S, SS]
 }
 object ComponentLifecycle {
   
-  inline def apply[P, S, SS](): ComponentLifecycle[P, S, SS] = {
+  inline def apply[F[_], P, S, SS]()(implicit _sync: Sync[F]): ComponentLifecycle[P, S, SS] = {
     val __obj = js.Dynamic.literal()
     __obj.asInstanceOf[ComponentLifecycle[P, S, SS]]
   }
   
   extension [Self <: ComponentLifecycle[?, ?, ?], P, S, SS](x: Self & (ComponentLifecycle[P, S, SS])) {
     
-    inline def setComponentDidCatch(
-      value: (/* import warning: transforms.QualifyReferences#resolveTypeRef many Couldn't qualify Error */ /* error */ js.Any, /* errorInfo */ ErrorInfo) => Callback
-    ): Self = StObject.set(x, "componentDidCatch", js.Any.fromFunction2((t0: /* import warning: transforms.QualifyReferences#resolveTypeRef many Couldn't qualify Error */ /* error */ js.Any, t1: /* errorInfo */ ErrorInfo) => (value(t0, t1)).runNow()))
+    inline def setComponentDidCatch[F[_]](
+      value: (/* import warning: transforms.QualifyReferences#resolveTypeRef many Couldn't qualify Error */ /* error */ js.Any, /* errorInfo */ ErrorInfo) => F[Unit]
+    )(
+      implicit _sync: Sync[F]
+    ): Self = StObject.set(x, "componentDidCatch", js.Any.fromFunction2((t0: /* import warning: transforms.QualifyReferences#resolveTypeRef many Couldn't qualify Error */ /* error */ js.Any, t1: /* errorInfo */ ErrorInfo) => _sync.runSync(value(t0, t1))))
     
     inline def setComponentDidCatchUndefined: Self = StObject.set(x, "componentDidCatch", js.undefined)
     
-    inline def setComponentDidMount(value: Callback): Self = StObject.set(x, "componentDidMount", value.toJsFn)
+    inline def setComponentDidMount[F[_]](value: F[Unit])(implicit _sync: Sync[F]): Self = StObject.set(x, "componentDidMount", _sync.toJsFn(value))
     
     inline def setComponentDidMountUndefined: Self = StObject.set(x, "componentDidMount", js.undefined)
     
-    inline def setComponentWillUnmount(value: Callback): Self = StObject.set(x, "componentWillUnmount", value.toJsFn)
+    inline def setComponentWillUnmount[F[_]](value: F[Unit])(implicit _sync: Sync[F]): Self = StObject.set(x, "componentWillUnmount", _sync.toJsFn(value))
     
     inline def setComponentWillUnmountUndefined: Self = StObject.set(x, "componentWillUnmount", js.undefined)
     

@@ -1,6 +1,6 @@
 package typingsJapgolly.react.mod
 
-import japgolly.scalajs.react.CallbackTo
+import japgolly.scalajs.react.util.Effect.Sync
 import org.scalablytyped.runtime.StringDictionary
 import org.scalablytyped.runtime.StObject
 import scala.scalajs.js
@@ -28,7 +28,7 @@ trait Mixin[P, S]
 }
 object Mixin {
   
-  inline def apply[P, S](): Mixin[P, S] = {
+  inline def apply[F[_], P, S]()(implicit _sync: Sync[F]): Mixin[P, S] = {
     val __obj = js.Dynamic.literal()
     __obj.asInstanceOf[Mixin[P, S]]
   }
@@ -47,11 +47,11 @@ object Mixin {
     
     inline def setDisplayNameUndefined: Self = StObject.set(x, "displayName", js.undefined)
     
-    inline def setGetDefaultProps(value: CallbackTo[P]): Self = StObject.set(x, "getDefaultProps", value.toJsFn)
+    inline def setGetDefaultProps[F[_]](value: F[P])(implicit _sync: Sync[F]): Self = StObject.set(x, "getDefaultProps", _sync.toJsFn(value))
     
     inline def setGetDefaultPropsUndefined: Self = StObject.set(x, "getDefaultProps", js.undefined)
     
-    inline def setGetInitialState(value: CallbackTo[S]): Self = StObject.set(x, "getInitialState", value.toJsFn)
+    inline def setGetInitialState[F[_]](value: F[S])(implicit _sync: Sync[F]): Self = StObject.set(x, "getInitialState", _sync.toJsFn(value))
     
     inline def setGetInitialStateUndefined: Self = StObject.set(x, "getInitialState", js.undefined)
     

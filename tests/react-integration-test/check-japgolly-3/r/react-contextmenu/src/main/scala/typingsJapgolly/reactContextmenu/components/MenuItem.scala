@@ -1,8 +1,8 @@
 package typingsJapgolly.reactContextmenu.components
 
-import japgolly.scalajs.react.Callback
 import japgolly.scalajs.react.ReactMouseEventFrom
 import japgolly.scalajs.react.ReactTouchEventFrom
+import japgolly.scalajs.react.util.Effect.Sync
 import org.scalajs.dom.raw.HTMLDivElement
 import org.scalajs.dom.raw.HTMLElement
 import typingsJapgolly.StBuildingComponent
@@ -44,9 +44,11 @@ object MenuItem {
         ]) | js.Function
     ): this.type = set("onClick", value.asInstanceOf[js.Any])
     
-    inline def onClickFunction3(
-      value: (/* event */ ReactTouchEventFrom[HTMLDivElement] | ReactMouseEventFrom[HTMLDivElement], /* import warning: transforms.QualifyReferences#resolveTypeRef many Couldn't qualify Object */ /* data */ js.Any, /* target */ HTMLElement) => Callback
-    ): this.type = set("onClick", js.Any.fromFunction3((t0: /* event */ ReactTouchEventFrom[HTMLDivElement] | ReactMouseEventFrom[HTMLDivElement], t1: /* import warning: transforms.QualifyReferences#resolveTypeRef many Couldn't qualify Object */ /* data */ js.Any, t2: /* target */ HTMLElement) => (value(t0, t1, t2)).runNow()))
+    inline def onClickFunction3[F[_]](
+      value: (/* event */ ReactTouchEventFrom[HTMLDivElement] | ReactMouseEventFrom[HTMLDivElement], /* import warning: transforms.QualifyReferences#resolveTypeRef many Couldn't qualify Object */ /* data */ js.Any, /* target */ HTMLElement) => F[Unit]
+    )(
+      implicit _sync: Sync[F]
+    ): this.type = set("onClick", js.Any.fromFunction3((t0: /* event */ ReactTouchEventFrom[HTMLDivElement] | ReactMouseEventFrom[HTMLDivElement], t1: /* import warning: transforms.QualifyReferences#resolveTypeRef many Couldn't qualify Object */ /* data */ js.Any, t2: /* target */ HTMLElement) => _sync.runSync(value(t0, t1, t2))))
     
     inline def preventClose(value: Boolean): this.type = set("preventClose", value.asInstanceOf[js.Any])
   }

@@ -22,6 +22,7 @@ case class ConversionOptions(
     enableReactTreeShaking: Selection[Name],
     enableLongApplyMethod:  Boolean,
     privateWithin:          Option[Name],
+    effectAgnostic:         Boolean,
 ) {
   val ignoredLibs: Set[TsIdentLibrary] =
     ignored.map(TsIdentLibrary.apply)
@@ -38,7 +39,7 @@ case class ConversionOptions(
       case Flavour.SlinkyNative =>
         SlinkyNativeFlavour(outputPackage, enableLongApplyMethod, versions, enableReactTreeShaking)
       case Flavour.ScalajsReact =>
-        JapgollyFlavour(outputPackage, enableLongApplyMethod, versions, enableReactTreeShaking)
+        JapgollyFlavour(outputPackage, enableLongApplyMethod, versions, enableReactTreeShaking, effectAgnostic)
     }
 
 }

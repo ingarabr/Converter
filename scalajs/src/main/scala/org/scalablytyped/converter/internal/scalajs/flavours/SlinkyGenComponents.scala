@@ -66,7 +66,8 @@ object SlinkyGenComponents {
     val (refTypes: IArray[TypeRef], _, props: IArray[Prop]) = _props.partitionCollect2(
       //refTypes
       {
-        case Prop.Normal(Prop.Variant(Ref(ref), _, _, _), _, _, _, FieldTree(_, _, names.ref, _, _, _, _, _, _)) => ref
+        case Prop.Normal(Prop.Variant(Ref(ref), _, _, _, _), _, _, _, FieldTree(_, _, names.ref, _, _, _, _, _, _)) =>
+          ref
       },
       // ignored
       {
@@ -740,7 +741,9 @@ class SlinkyGenComponents(
           }
 
           val variantsMethods: IArray[MethodTree] = variantsForProp.mapToIArray {
-            case (methodName, Prop.Variant(tpe, asExpr, _, _)) =>
+            case (methodName, Prop.Variant(tpe, asExpr, _, _, maybeAgnostic)) =>
+              require(maybeAgnostic.isEmpty, "not implemented")
+
               val param = ParamTree(Name("value"), isImplicit = false, isVal = false, tpe, NotImplemented, NoComments)
               val impl = Call(
                 Ref(genStBuilder.set.name),

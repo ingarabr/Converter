@@ -1,5 +1,6 @@
 package typingsJapgolly.react.mod
 
+import japgolly.scalajs.react.util.Effect.Sync
 import org.scalablytyped.runtime.StObject
 import scala.scalajs.js
 import scala.scalajs.js.annotation.{JSGlobalScope, JSGlobal, JSImport, JSName, JSBracketAccess}
@@ -14,7 +15,7 @@ trait DelHTMLAttributes[T]
 }
 object DelHTMLAttributes {
   
-  inline def apply[T](): DelHTMLAttributes[T] = {
+  inline def apply[F[_], T]()(implicit _sync: Sync[F]): DelHTMLAttributes[T] = {
     val __obj = js.Dynamic.literal()
     __obj.asInstanceOf[DelHTMLAttributes[T]]
   }

@@ -1,5 +1,6 @@
 package typingsJapgolly.react.mod
 
+import japgolly.scalajs.react.util.Effect.Sync
 import typingsJapgolly.react.reactStrings.off
 import typingsJapgolly.react.reactStrings.on
 import org.scalablytyped.runtime.StObject
@@ -106,7 +107,7 @@ trait HTMLAttributes[T]
 }
 object HTMLAttributes {
   
-  inline def apply[T](): HTMLAttributes[T] = {
+  inline def apply[F[_], T]()(implicit _sync: Sync[F]): HTMLAttributes[T] = {
     val __obj = js.Dynamic.literal()
     __obj.asInstanceOf[HTMLAttributes[T]]
   }

@@ -1,5 +1,6 @@
 package typingsJapgolly.react.mod
 
+import japgolly.scalajs.react.util.Effect.Sync
 import org.scalablytyped.runtime.StObject
 import scala.scalajs.js
 import scala.scalajs.js.annotation.{JSGlobalScope, JSGlobal, JSImport, JSName, JSBracketAccess}
@@ -14,7 +15,7 @@ trait CanvasHTMLAttributes[T]
 }
 object CanvasHTMLAttributes {
   
-  inline def apply[T](): CanvasHTMLAttributes[T] = {
+  inline def apply[F[_], T]()(implicit _sync: Sync[F]): CanvasHTMLAttributes[T] = {
     val __obj = js.Dynamic.literal()
     __obj.asInstanceOf[CanvasHTMLAttributes[T]]
   }

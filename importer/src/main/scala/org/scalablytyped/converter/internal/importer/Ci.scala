@@ -117,6 +117,7 @@ object Ci {
                 enableReactTreeShaking = Selection.None,
                 enableLongApplyMethod  = false,
                 privateWithin          = None,
+                effectAgnostic         = flags contains "-effectAgnostic",
               ),
               wantedLibs       = wantedLibNames,
               offline          = flags contains "-offline",

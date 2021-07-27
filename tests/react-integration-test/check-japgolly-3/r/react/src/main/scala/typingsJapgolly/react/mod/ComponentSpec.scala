@@ -1,7 +1,7 @@
 package typingsJapgolly.react.mod
 
-import japgolly.scalajs.react.CallbackTo
 import japgolly.scalajs.react.facade.React.Node
+import japgolly.scalajs.react.util.Effect.Sync
 import org.scalablytyped.runtime.StringDictionary
 import org.scalablytyped.runtime.StObject
 import scala.scalajs.js
@@ -16,13 +16,13 @@ trait ComponentSpec[P, S]
 }
 object ComponentSpec {
   
-  inline def apply[P, S](render: CallbackTo[Node]): ComponentSpec[P, S] = {
-    val __obj = js.Dynamic.literal(render = render.toJsFn)
+  inline def apply[F[_], P, S](render: F[Node])(implicit _sync: Sync[F]): ComponentSpec[P, S] = {
+    val __obj = js.Dynamic.literal(render = _sync.toJsFn(render))
     __obj.asInstanceOf[ComponentSpec[P, S]]
   }
   
   extension [Self <: ComponentSpec[?, ?], P, S](x: Self & (ComponentSpec[P, S])) {
     
-    inline def setRender(value: CallbackTo[Node]): Self = StObject.set(x, "render", value.toJsFn)
+    inline def setRender[F[_]](value: F[Node])(implicit _sync: Sync[F]): Self = StObject.set(x, "render", _sync.toJsFn(value))
   }
 }

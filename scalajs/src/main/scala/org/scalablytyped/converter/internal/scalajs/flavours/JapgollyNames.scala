@@ -20,6 +20,9 @@ object JapgollyNames {
   val ReactUIEventFrom          = QualifiedName("japgolly.scalajs.react.ReactUIEventFrom")
   val ReactWheelEventFrom       = QualifiedName("japgolly.scalajs.react.ReactWheelEventFrom")
 
+  val Dispatch = QualifiedName("japgolly.scalajs.react.util.Effect.Dispatch")
+  val Sync     = QualifiedName("japgolly.scalajs.react.util.Effect.Sync")
+
   object vdom {
     val TagMod       = QualifiedName("japgolly.scalajs.react.vdom.TagMod")
     val TagOf        = QualifiedName("japgolly.scalajs.react.vdom.TagOf")
