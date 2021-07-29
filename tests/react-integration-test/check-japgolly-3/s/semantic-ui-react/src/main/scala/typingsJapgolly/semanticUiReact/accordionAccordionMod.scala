@@ -1,7 +1,6 @@
 package typingsJapgolly.semanticUiReact
 
 import japgolly.scalajs.react.facade.React.ComponentClassP
-import japgolly.scalajs.react.util.Effect.Sync
 import org.scalablytyped.runtime.Shortcut
 import org.scalablytyped.runtime.StringDictionary
 import typingsJapgolly.react.mod.Component
@@ -73,7 +72,7 @@ object accordionAccordionMod {
        with /* key */ StringDictionary[js.Any]
   object AccordionProps {
     
-    inline def apply[F[_]]()(implicit _sync: Sync[F]): AccordionProps = {
+    inline def apply(): AccordionProps = {
       val __obj = js.Dynamic.literal()
       __obj.asInstanceOf[AccordionProps]
     }
@@ -94,7 +93,7 @@ object accordionAccordionMod {
   }
   object StrictAccordionProps {
     
-    inline def apply[F[_]]()(implicit _sync: Sync[F]): StrictAccordionProps = {
+    inline def apply(): StrictAccordionProps = {
       val __obj = js.Dynamic.literal()
       __obj.asInstanceOf[StrictAccordionProps]
     }

@@ -55,7 +55,7 @@ trait ComponentLifecycle[P, S, SS]
 }
 object ComponentLifecycle {
   
-  inline def apply[F[_], P, S, SS]()(implicit _sync: Sync[F]): ComponentLifecycle[P, S, SS] = {
+  inline def apply[P, S, SS](): ComponentLifecycle[P, S, SS] = {
     val __obj = js.Dynamic.literal()
     __obj.asInstanceOf[ComponentLifecycle[P, S, SS]]
   }

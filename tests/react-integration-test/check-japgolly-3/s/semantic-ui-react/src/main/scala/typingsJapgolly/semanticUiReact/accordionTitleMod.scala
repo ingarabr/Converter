@@ -41,7 +41,7 @@ object accordionTitleMod extends Shortcut {
        with /* key */ StringDictionary[js.Any]
   object AccordionTitleProps {
     
-    inline def apply[F[_]]()(implicit _sync: Sync[F]): AccordionTitleProps = {
+    inline def apply(): AccordionTitleProps = {
       val __obj = js.Dynamic.literal()
       __obj.asInstanceOf[AccordionTitleProps]
     }
@@ -90,7 +90,7 @@ object accordionTitleMod extends Shortcut {
   }
   object StrictAccordionTitleProps {
     
-    inline def apply[F[_]]()(implicit _sync: Sync[F]): StrictAccordionTitleProps = {
+    inline def apply(): StrictAccordionTitleProps = {
       val __obj = js.Dynamic.literal()
       __obj.asInstanceOf[StrictAccordionTitleProps]
     }

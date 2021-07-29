@@ -28,7 +28,7 @@ trait Mixin[P, S]
 }
 object Mixin {
   
-  inline def apply[F[_], P, S]()(implicit _sync: Sync[F]): Mixin[P, S] = {
+  inline def apply[P, S](): Mixin[P, S] = {
     val __obj = js.Dynamic.literal()
     __obj.asInstanceOf[Mixin[P, S]]
   }

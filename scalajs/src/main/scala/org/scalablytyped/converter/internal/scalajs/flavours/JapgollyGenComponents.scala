@@ -6,7 +6,6 @@ import org.scalablytyped.converter.internal.maps._
 import org.scalablytyped.converter.internal.scalajs.ExprTree._
 import org.scalablytyped.converter.internal.scalajs.flavours.FindProps.Res
 import org.scalablytyped.converter.internal.scalajs.flavours.GenBuilderClass.AvailableName
-import org.scalablytyped.converter.internal.scalajs.flavours.Prop.EffectAgnostic
 
 object JapgollyGenComponents {
 

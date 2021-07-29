@@ -105,7 +105,7 @@ trait DeprecatedLifecycle[P, S] extends StObject {
 }
 object DeprecatedLifecycle {
   
-  inline def apply[F[_], P, S]()(implicit _sync: Sync[F]): DeprecatedLifecycle[P, S] = {
+  inline def apply[P, S](): DeprecatedLifecycle[P, S] = {
     val __obj = js.Dynamic.literal()
     __obj.asInstanceOf[DeprecatedLifecycle[P, S]]
   }

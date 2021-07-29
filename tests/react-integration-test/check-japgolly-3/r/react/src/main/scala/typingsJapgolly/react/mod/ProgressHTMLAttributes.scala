@@ -1,6 +1,5 @@
 package typingsJapgolly.react.mod
 
-import japgolly.scalajs.react.util.Effect.Sync
 import org.scalablytyped.runtime.StObject
 import scala.scalajs.js
 import scala.scalajs.js.annotation.{JSGlobalScope, JSGlobal, JSImport, JSName, JSBracketAccess}
@@ -15,7 +14,7 @@ trait ProgressHTMLAttributes[T]
 }
 object ProgressHTMLAttributes {
   
-  inline def apply[F[_], T]()(implicit _sync: Sync[F]): ProgressHTMLAttributes[T] = {
+  inline def apply[T](): ProgressHTMLAttributes[T] = {
     val __obj = js.Dynamic.literal()
     __obj.asInstanceOf[ProgressHTMLAttributes[T]]
   }

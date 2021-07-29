@@ -1,6 +1,5 @@
 package typingsJapgolly.react.mod
 
-import japgolly.scalajs.react.util.Effect.Sync
 import typingsJapgolly.react.reactStrings.button
 import typingsJapgolly.react.reactStrings.reset
 import typingsJapgolly.react.reactStrings.submit
@@ -36,7 +35,7 @@ trait ButtonHTMLAttributes[T]
 }
 object ButtonHTMLAttributes {
   
-  inline def apply[F[_], T]()(implicit _sync: Sync[F]): ButtonHTMLAttributes[T] = {
+  inline def apply[T](): ButtonHTMLAttributes[T] = {
     val __obj = js.Dynamic.literal()
     __obj.asInstanceOf[ButtonHTMLAttributes[T]]
   }

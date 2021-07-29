@@ -79,7 +79,7 @@ trait InputHTMLAttributes[T]
 }
 object InputHTMLAttributes {
   
-  inline def apply[F[_], T]()(implicit _sync: Sync[F]): InputHTMLAttributes[T] = {
+  inline def apply[T](): InputHTMLAttributes[T] = {
     val __obj = js.Dynamic.literal()
     __obj.asInstanceOf[InputHTMLAttributes[T]]
   }

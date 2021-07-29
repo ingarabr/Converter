@@ -52,7 +52,7 @@ object inputInputMod {
   }
   object InputOnChangeData {
     
-    inline def apply[F[_]](value: String)(implicit _sync: Sync[F]): InputOnChangeData = {
+    inline def apply(value: String): InputOnChangeData = {
       val __obj = js.Dynamic.literal(value = value.asInstanceOf[js.Any])
       __obj.asInstanceOf[InputOnChangeData]
     }
@@ -136,7 +136,7 @@ object inputInputMod {
   }
   object StrictInputProps {
     
-    inline def apply[F[_]]()(implicit _sync: Sync[F]): StrictInputProps = {
+    inline def apply(): StrictInputProps = {
       val __obj = js.Dynamic.literal()
       __obj.asInstanceOf[StrictInputProps]
     }

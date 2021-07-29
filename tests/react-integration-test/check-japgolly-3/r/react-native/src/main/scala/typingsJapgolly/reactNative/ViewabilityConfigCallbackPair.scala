@@ -14,7 +14,7 @@ trait ViewabilityConfigCallbackPair extends StObject {
 }
 object ViewabilityConfigCallbackPair {
   
-  inline def apply[F[_]](viewabilityConfig: ViewabilityConfig)(implicit _sync: Sync[F]): ViewabilityConfigCallbackPair = {
+  inline def apply(viewabilityConfig: ViewabilityConfig): ViewabilityConfigCallbackPair = {
     val __obj = js.Dynamic.literal(viewabilityConfig = viewabilityConfig.asInstanceOf[js.Any], onViewableItemsChanged = null)
     __obj.asInstanceOf[ViewabilityConfigCallbackPair]
   }

@@ -1,6 +1,5 @@
 package typingsJapgolly.react.mod
 
-import japgolly.scalajs.react.util.Effect.Sync
 import typingsJapgolly.react.reactStrings.A
 import typingsJapgolly.react.reactStrings.I
 import typingsJapgolly.react.reactStrings.`1`
@@ -22,7 +21,7 @@ trait OlHTMLAttributes[T]
 }
 object OlHTMLAttributes {
   
-  inline def apply[F[_], T]()(implicit _sync: Sync[F]): OlHTMLAttributes[T] = {
+  inline def apply[T](): OlHTMLAttributes[T] = {
     val __obj = js.Dynamic.literal()
     __obj.asInstanceOf[OlHTMLAttributes[T]]
   }

@@ -65,7 +65,7 @@ object toggleButtonGroupMod {
   }
   object CheckboxProps {
     
-    inline def apply[F[_]]()(implicit _sync: Sync[F]): CheckboxProps = {
+    inline def apply(): CheckboxProps = {
       val __obj = js.Dynamic.literal()
       __obj.updateDynamic("type")("checkbox")
       __obj.asInstanceOf[CheckboxProps]
@@ -96,7 +96,7 @@ object toggleButtonGroupMod {
   }
   object RadioProps {
     
-    inline def apply[F[_]](name: String)(implicit _sync: Sync[F]): RadioProps = {
+    inline def apply(name: String): RadioProps = {
       val __obj = js.Dynamic.literal(name = name.asInstanceOf[js.Any])
       __obj.updateDynamic("type")("radio")
       __obj.asInstanceOf[RadioProps]

@@ -34,7 +34,7 @@ object accordionPanelMod {
        with /* key */ StringDictionary[js.Any]
   object AccordionPanelProps {
     
-    inline def apply[F[_]]()(implicit _sync: Sync[F]): AccordionPanelProps = {
+    inline def apply(): AccordionPanelProps = {
       val __obj = js.Dynamic.literal()
       __obj.asInstanceOf[AccordionPanelProps]
     }
@@ -70,7 +70,7 @@ object accordionPanelMod {
   }
   object StrictAccordionPanelProps {
     
-    inline def apply[F[_]]()(implicit _sync: Sync[F]): StrictAccordionPanelProps = {
+    inline def apply(): StrictAccordionPanelProps = {
       val __obj = js.Dynamic.literal()
       __obj.asInstanceOf[StrictAccordionPanelProps]
     }

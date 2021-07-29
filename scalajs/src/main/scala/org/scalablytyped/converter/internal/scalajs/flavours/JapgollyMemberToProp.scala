@@ -3,7 +3,6 @@ package scalajs
 package flavours
 
 import org.scalablytyped.converter.internal.scalajs.ExprTree._
-import org.scalablytyped.converter.internal.scalajs.flavours.Prop.EffectAgnostic
 
 class JapgollyMemberToProp(reactNames: ReactNamesProxy, rewrites: IArray[CastConversion], effectAgnostic: Boolean)
     extends MemberToProp {

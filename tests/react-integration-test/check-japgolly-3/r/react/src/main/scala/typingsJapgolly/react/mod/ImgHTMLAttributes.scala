@@ -1,6 +1,5 @@
 package typingsJapgolly.react.mod
 
-import japgolly.scalajs.react.util.Effect.Sync
 import typingsJapgolly.react.reactStrings._empty
 import typingsJapgolly.react.reactStrings.`use-credentials`
 import typingsJapgolly.react.reactStrings.anonymous
@@ -35,7 +34,7 @@ trait ImgHTMLAttributes[T]
 }
 object ImgHTMLAttributes {
   
-  inline def apply[F[_], T]()(implicit _sync: Sync[F]): ImgHTMLAttributes[T] = {
+  inline def apply[T](): ImgHTMLAttributes[T] = {
     val __obj = js.Dynamic.literal()
     __obj.asInstanceOf[ImgHTMLAttributes[T]]
   }

@@ -109,7 +109,7 @@ object mod {
   }
   object ContextMenuProps {
     
-    inline def apply[F[_]](id: String)(implicit _sync: Sync[F]): ContextMenuProps = {
+    inline def apply(id: String): ContextMenuProps = {
       val __obj = js.Dynamic.literal(id = id.asInstanceOf[js.Any])
       __obj.asInstanceOf[ContextMenuProps]
     }

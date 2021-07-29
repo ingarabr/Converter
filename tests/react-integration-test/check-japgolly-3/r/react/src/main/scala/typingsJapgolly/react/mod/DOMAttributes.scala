@@ -207,7 +207,7 @@ trait DOMAttributes[T] extends StObject {
 }
 object DOMAttributes {
   
-  inline def apply[F[_], T]()(implicit _sync: Sync[F]): DOMAttributes[T] = {
+  inline def apply[T](): DOMAttributes[T] = {
     val __obj = js.Dynamic.literal()
     __obj.asInstanceOf[DOMAttributes[T]]
   }

@@ -5,7 +5,6 @@ package flavours
 import org.scalablytyped.converter.internal.maps._
 import org.scalablytyped.converter.internal.scalajs.TypeParamTree.asTypeArgs
 import ExprTree._
-import org.scalablytyped.converter.internal.scalajs.flavours.Prop.EffectAgnostic
 
 import scala.collection.mutable
 

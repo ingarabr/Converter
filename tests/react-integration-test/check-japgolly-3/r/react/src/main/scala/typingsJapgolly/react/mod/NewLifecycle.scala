@@ -29,7 +29,7 @@ trait NewLifecycle[P, S, SS] extends StObject {
 }
 object NewLifecycle {
   
-  inline def apply[F[_], P, S, SS]()(implicit _sync: Sync[F]): NewLifecycle[P, S, SS] = {
+  inline def apply[P, S, SS](): NewLifecycle[P, S, SS] = {
     val __obj = js.Dynamic.literal()
     __obj.asInstanceOf[NewLifecycle[P, S, SS]]
   }

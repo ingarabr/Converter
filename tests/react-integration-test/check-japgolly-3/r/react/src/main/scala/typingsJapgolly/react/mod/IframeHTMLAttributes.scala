@@ -1,6 +1,5 @@
 package typingsJapgolly.react.mod
 
-import japgolly.scalajs.react.util.Effect.Sync
 import org.scalablytyped.runtime.StObject
 import scala.scalajs.js
 import scala.scalajs.js.annotation.{JSGlobalScope, JSGlobal, JSImport, JSName, JSBracketAccess}
@@ -41,7 +40,7 @@ trait IframeHTMLAttributes[T]
 }
 object IframeHTMLAttributes {
   
-  inline def apply[F[_], T]()(implicit _sync: Sync[F]): IframeHTMLAttributes[T] = {
+  inline def apply[T](): IframeHTMLAttributes[T] = {
     val __obj = js.Dynamic.literal()
     __obj.asInstanceOf[IframeHTMLAttributes[T]]
   }

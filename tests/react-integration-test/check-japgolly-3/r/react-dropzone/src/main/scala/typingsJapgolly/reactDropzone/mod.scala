@@ -39,7 +39,7 @@ object mod {
   }
   object DropzoneInputProps {
     
-    inline def apply[F[_]]()(implicit _sync: Sync[F]): DropzoneInputProps = {
+    inline def apply(): DropzoneInputProps = {
       val __obj = js.Dynamic.literal()
       __obj.asInstanceOf[DropzoneInputProps]
     }
@@ -125,7 +125,7 @@ object mod {
   }
   object DropzoneOptions {
     
-    inline def apply[F[_]]()(implicit _sync: Sync[F]): DropzoneOptions = {
+    inline def apply(): DropzoneOptions = {
       val __obj = js.Dynamic.literal()
       __obj.asInstanceOf[DropzoneOptions]
     }
@@ -258,7 +258,7 @@ object mod {
   }
   object DropzoneProps {
     
-    inline def apply[F[_]]()(implicit _sync: Sync[F]): DropzoneProps = {
+    inline def apply(): DropzoneProps = {
       val __obj = js.Dynamic.literal()
       __obj.asInstanceOf[DropzoneProps]
     }
@@ -297,7 +297,7 @@ object mod {
   }
   object DropzoneRootProps {
     
-    inline def apply[F[_]]()(implicit _sync: Sync[F]): DropzoneRootProps = {
+    inline def apply(): DropzoneRootProps = {
       val __obj = js.Dynamic.literal()
       __obj.asInstanceOf[DropzoneRootProps]
     }

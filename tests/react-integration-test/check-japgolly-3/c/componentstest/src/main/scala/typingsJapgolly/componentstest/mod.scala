@@ -65,7 +65,7 @@ object mod {
   }
   object B {
     
-    inline def apply[F[_]](bMember: String)(implicit _sync: Sync[F]): B = {
+    inline def apply(bMember: String): B = {
       val __obj = js.Dynamic.literal(bMember = bMember.asInstanceOf[js.Any])
       __obj.asInstanceOf[B]
     }
@@ -134,7 +134,7 @@ object mod {
   }
   object CardProps {
     
-    inline def apply[F[_]]()(implicit _sync: Sync[F]): CardProps = {
+    inline def apply(): CardProps = {
       val __obj = js.Dynamic.literal()
       __obj.asInstanceOf[CardProps]
     }
@@ -163,7 +163,7 @@ object mod {
       __obj.asInstanceOf[typingsJapgolly.componentstest.mod.A]
     }
     
-    inline def B[F[_]](bMember: String)(implicit _sync: Sync[F]): typingsJapgolly.componentstest.mod.B = {
+    inline def B(bMember: String): typingsJapgolly.componentstest.mod.B = {
       val __obj = js.Dynamic.literal(bMember = bMember.asInstanceOf[js.Any])
       __obj.asInstanceOf[typingsJapgolly.componentstest.mod.B]
     }

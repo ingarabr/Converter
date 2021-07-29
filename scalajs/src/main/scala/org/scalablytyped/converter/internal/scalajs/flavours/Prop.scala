@@ -30,35 +30,6 @@ object Prop {
       copy(main = f(main), variants = variants.map(f))
   }
 
-  case class EffectAgnostic(typeParam: TypeParamTree, constraints: IArray[ParamTree]) {
-    require(constraints.forall(_.isImplicit))
-  }
-
-  object EffectAgnostic {
-    def apply(effects: IArray[EffectAgnostic])(methodTree: MethodTree): MethodTree =
-      effects match {
-        case Empty => methodTree
-        case some =>
-          methodTree.copy(
-            tparams = some.map(_.typeParam).distinct ++ methodTree.tparams,
-            params  = methodTree.params ++ IArray(some.flatMap(_.constraints).distinct),
-          )
-      }
-
-    def patch(maybeEffect: Option[EffectAgnostic])(methodTree: MethodTree): MethodTree =
-      apply(IArray.fromOption(maybeEffect))(methodTree)
-
-    def patch(props: IArray[Prop])(methodTree: MethodTree): MethodTree = {
-      val effects: IArray[EffectAgnostic] =
-        props.mapNotNone {
-          case Prop.Normal(Prop.Variant(_, _, _, _, maybeEffect), _, _, _, _) => maybeEffect
-          case _                                                              => None
-        }
-
-      apply(effects)(methodTree)
-    }
-  }
-
   /**
     * A `Prop` can have several "variants" for providing useful overloads.
     *

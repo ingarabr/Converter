@@ -34,7 +34,7 @@ trait SelectHTMLAttributes[T]
 }
 object SelectHTMLAttributes {
   
-  inline def apply[F[_], T]()(implicit _sync: Sync[F]): SelectHTMLAttributes[T] = {
+  inline def apply[T](): SelectHTMLAttributes[T] = {
     val __obj = js.Dynamic.literal()
     __obj.asInstanceOf[SelectHTMLAttributes[T]]
   }

@@ -41,7 +41,7 @@ object accordionAccordionAccordionMod extends Shortcut {
        with /* key */ StringDictionary[js.Any]
   object AccordionAccordionProps {
     
-    inline def apply[F[_]]()(implicit _sync: Sync[F]): AccordionAccordionProps = {
+    inline def apply(): AccordionAccordionProps = {
       val __obj = js.Dynamic.literal()
       __obj.asInstanceOf[AccordionAccordionProps]
     }
@@ -86,7 +86,7 @@ object accordionAccordionAccordionMod extends Shortcut {
   }
   object StrictAccordionAccordionProps {
     
-    inline def apply[F[_]]()(implicit _sync: Sync[F]): StrictAccordionAccordionProps = {
+    inline def apply(): StrictAccordionAccordionProps = {
       val __obj = js.Dynamic.literal()
       __obj.asInstanceOf[StrictAccordionAccordionProps]
     }

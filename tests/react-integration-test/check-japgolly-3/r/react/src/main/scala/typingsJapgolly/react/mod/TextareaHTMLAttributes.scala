@@ -44,7 +44,7 @@ trait TextareaHTMLAttributes[T]
 }
 object TextareaHTMLAttributes {
   
-  inline def apply[F[_], T]()(implicit _sync: Sync[F]): TextareaHTMLAttributes[T] = {
+  inline def apply[T](): TextareaHTMLAttributes[T] = {
     val __obj = js.Dynamic.literal()
     __obj.asInstanceOf[TextareaHTMLAttributes[T]]
   }

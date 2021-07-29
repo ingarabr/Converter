@@ -167,7 +167,7 @@ object buttonMod {
   }
   object StrictButtonProps {
     
-    inline def apply[F[_]]()(implicit _sync: Sync[F]): StrictButtonProps = {
+    inline def apply(): StrictButtonProps = {
       val __obj = js.Dynamic.literal()
       __obj.asInstanceOf[StrictButtonProps]
     }
