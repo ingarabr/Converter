@@ -28,7 +28,8 @@ class JapgollyMemberToProp(reactNames: ReactNamesProxy, rewrites: IArray[CastCon
 
   val F = TypeParamTree(
     Name("F"),
-    IArray(TypeParamTree(Name.HIGHER_KINDED, Empty, None, NoComments, ignoreBound = false)),
+    IArray(TypeParamTree(Name.WILDCARD_KIND, Empty, None, None, NoComments, ignoreBound = false)),
+    typeBound = Some(TypeRef(JapgollyNames.Sync)),
     None,
     NoComments,
     ignoreBound = false,
@@ -37,32 +38,17 @@ class JapgollyMemberToProp(reactNames: ReactNamesProxy, rewrites: IArray[CastCon
   def F(ref: TypeRef): TypeRef =
     TypeRef(QualifiedName(IArray(F.name)), IArray(ref), NoComments)
 
-  val implicitDispatcher = ParamTree(
-    Name("_dispatcher"),
-    isImplicit = true,
-    isVal      = false,
-    TypeRef(JapgollyNames.Dispatch, TypeParamTree.asTypeArgs(IArray(F)), NoComments),
-    NotImplemented,
-    NoComments,
-  )
-  val implicitSync = ParamTree(
-    Name("_sync"),
-    isImplicit = true,
-    isVal      = false,
-    TypeRef(JapgollyNames.Sync, TypeParamTree.asTypeArgs(IArray(F)), NoComments),
-    NotImplemented,
-    NoComments,
-  )
+  val FSync = TApply(Ref(Name("implicitly")), IArray(TypeRef(JapgollyNames.Sync, IArray(TypeRef(F.name)), NoComments)))
 
   def toScalaJsReact(variant: Prop.Variant): Prop.Variant =
     variant.tpe match {
       case TypeRef.ScalaFunction(Empty, retType) if effectAgnostic =>
         Prop.Variant(
           F(retType),
-          ref => Call(Ref(implicitSync.name).select("toJsFn"), IArray(IArray(ref))),
+          ref => Call(FSync.select("toJsFn"), IArray(IArray(ref))),
           isRewritten   = true,
           extendsAnyVal = true,
-          agnostic      = Some(EffectAgnostic(F, IArray(implicitSync))),
+          agnostic      = Some(EffectAgnostic(F)),
         )
 
       case TypeRef.ScalaFunction(Empty, retType) =>
@@ -82,7 +68,7 @@ class JapgollyMemberToProp(reactNames: ReactNamesProxy, rewrites: IArray[CastCon
           }
           val body = {
             Call(
-              Ref(implicitSync.name).select("runSync"),
+              FSync.select("runSync"),
               IArray(IArray(Call(ref, IArray(params.map(p => Ref(p.name)))))),
             )
           }
@@ -95,7 +81,7 @@ class JapgollyMemberToProp(reactNames: ReactNamesProxy, rewrites: IArray[CastCon
           asExpr        = fn,
           isRewritten   = true,
           extendsAnyVal = false,
-          agnostic      = Some(EffectAgnostic(F, IArray(implicitSync))),
+          agnostic      = Some(EffectAgnostic(F)),
         )
 
       case TypeRef.ScalaFunction(paramTypes, TypeRef.Unit) =>

@@ -462,14 +462,20 @@ object Printer {
         tparams.map(formatTypeParamTree(indent)).mkString("[", ", ", "]")
 
     def formatTypeParamTree(indent: Int)(tree: TypeParamTree): String =
-      Comments.format(tree.comments) |+|
-        formatName(tree.name) |+|
-        formatTypeParams(indent)(tree.params) |+|
-        (tree.upperBound match {
+      IArray(
+        Comments.format(tree.comments),
+        formatName(tree.name),
+        formatTypeParams(indent)(tree.params),
+        tree.upperBound match {
           case Some(bound) if tree.ignoreBound => " /* <: " |+| formatTypeRef(indent)(bound) |+| " */"
           case Some(bound)                     => " <: " |+| formatTypeRef(indent)(bound)
           case None                            => ""
-        })
+        },
+        tree.typeBound match {
+          case Some(bound) => s": " + formatTypeRef(0)(bound)
+          case None        => ""
+        },
+      ).mkString
 
     def formatParamTree(indent: Int)(tree: ParamTree): String =
       IArray(
@@ -491,7 +497,7 @@ object Printer {
       case Name.THIS                          => "this"
       case Name.SUPER                         => "super"
       case Name.WILDCARD if scalaVersion.is3  => "?"
-      case Name.WILDCARD | Name.HIGHER_KINDED => "_"
+      case Name.WILDCARD | Name.WILDCARD_KIND => "_"
       case other                              => other.value
     }
 

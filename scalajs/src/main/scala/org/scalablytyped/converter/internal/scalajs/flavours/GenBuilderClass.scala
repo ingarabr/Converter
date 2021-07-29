@@ -30,6 +30,7 @@ object GenBuilderClass {
       val selfTParam = TypeParamTree(
         name        = SelfName,
         params      = Empty,
+        typeBound   = None,
         upperBound  = Some(TypeRef(original.codePath, original.tparams.map(_ => TypeRef.Wildcard), NoComments)),
         comments    = NoComments,
         ignoreBound = false,
